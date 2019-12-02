@@ -4,7 +4,11 @@ import ply.yacc as yacc
 variable =[]
 tokens = [
         'NAME', 'NUMBER', 'EQUALS', 'COMILLA', 'FLOAT','TWOPOINT','ESPACIO',
+<<<<<<< HEAD
         'LPAREN', 'RPAREN','LCORCH', 'RCORCH','COMA', 'ITEMS', 'POINT'
+=======
+        'LPAREN', 'RPAREN','LCORCH', 'RCORCH','COMA' , 'ILLAVE', 'DLLAVE'
+>>>>>>> 83f434315265db7e70f8bb9d6f3aaf30ac460c3c
     ]
 reservadas = {
     'in':'IN',
@@ -13,8 +17,13 @@ reservadas = {
     'elif':'ELIF',
     'print':'PRINT',
     'True': 'TRUE',
+<<<<<<< HEAD
     'False': 'FALSE',
     'for' : 'FOR'
+=======
+    'False': 'FALSE'
+
+>>>>>>> 83f434315265db7e70f8bb9d6f3aaf30ac460c3c
 }
 
 tokens+=list(reservadas.values())
@@ -28,8 +37,15 @@ t_COMA = r'\,'
 t_EQUALS = r'='
 t_TWOPOINT = r':'
 t_ESPACIO = r'\s'
+<<<<<<< HEAD
 t_ITEMS = r'items()'
 t_POINT = r'\.'
+=======
+t_ILLAVE = r'\{'
+t_DLLAVE= r'\}'
+
+
+>>>>>>> 83f434315265db7e70f8bb9d6f3aaf30ac460c3c
 
 def t_NAME(t):
     r'[a-z_][a-zA-z0-9_\-]*'
@@ -87,9 +103,13 @@ def p_option(p):
             | print
             | if
             | elif
+<<<<<<< HEAD
             | else
             | for
             | lista'''
+=======
+            | else '''
+>>>>>>> 83f434315265db7e70f8bb9d6f3aaf30ac460c3c
     p[0] = p[1]
 
 def p_assign(p):
@@ -97,9 +117,27 @@ def p_assign(p):
             | var string
             | var float
             | var number
-            | var bool'''
+            | var bool
+            | var diccionario '''
     p[0] = p[2]
 
+def p_diccionario(p):
+    '''diccionario : ILLAVE info DLLAVE '''
+    p[0] = p[1] + p[2] + p[3]
+
+def p_info(p):
+    '''info : keys TWOPOINT items
+            | keys TWOPOINT items COMA info'''
+    if len(p) == 4:
+        p[0] = str(p[1]) + p[2] + str(p[3])
+    elif len(p) ==6:
+        p[0] = str(p[1]) + p[2] + str(p[3]) + p[4] + p[5]
+
+def p_keys(p):
+    '''keys : string
+            | number
+            | float'''
+    p[0] = p[1]
 def p_lista(p):
     'lista : LCORCH contenido RCORCH'
     p[0] = p[1] + p[2] + p[3]
@@ -209,8 +247,14 @@ entrada1 = "var = ['cs', True , ['csdc',1]]"
 entrada2 = "if('csc' in ['cdsac']):"
 entrada3 = "elif('csc' in 'string'):"
 entrada4 = "else:"
+<<<<<<< HEAD
 entrada5 = "for(clave,valor in dic.items()):"
 
 res = parser.parse(entrada3)
+=======
+entrada5 = "var={\"rutaSur\":[\"lasValdivias\",\"puertoMoro\"]}"
+
+res = parser.parse(entrada5)
+>>>>>>> 83f434315265db7e70f8bb9d6f3aaf30ac460c3c
 print(res)
 
