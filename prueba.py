@@ -4,7 +4,7 @@ import ply.yacc as yacc
 variable =[]
 tokens = [
         'NAME', 'NUMBER', 'EQUALS', 'COMILLA', 'FLOAT','TWOPOINT','ESPACIO',
-        'LPAREN', 'RPAREN','LCORCH', 'RCORCH','COMA'
+        'LPAREN', 'RPAREN','LCORCH', 'RCORCH','COMA' , 'ILLAVE', 'DLLAVE'
     ]
 reservadas = {
     'in':'IN',
@@ -14,6 +14,7 @@ reservadas = {
     'print':'PRINT',
     'True': 'TRUE',
     'False': 'FALSE'
+
 }
 
 tokens+=list(reservadas.values())
@@ -27,6 +28,8 @@ t_COMA = r'\,'
 t_EQUALS = r'='
 t_TWOPOINT = r':'
 t_ESPACIO = r'\s'
+t_ILLAVE = r'\{'
+t_DLLAVE= r'\}'
 
 
 
@@ -86,8 +89,7 @@ def p_option(p):
             | print
             | if
             | elif
-            | else
-            | lista'''
+            | else '''
     p[0] = p[1]
 
 def p_assign(p):
@@ -95,9 +97,27 @@ def p_assign(p):
             | var string
             | var float
             | var number
-            | var bool'''
+            | var bool
+            | var diccionario '''
     p[0] = p[2]
 
+def p_diccionario(p):
+    '''diccionario : ILLAVE info DLLAVE '''
+    p[0] = p[1] + p[2] + p[3]
+
+def p_info(p):
+    '''info : keys TWOPOINT items
+            | keys TWOPOINT items COMA info'''
+    if len(p) == 4:
+        p[0] = str(p[1]) + p[2] + str(p[3])
+    elif len(p) ==6:
+        p[0] = str(p[1]) + p[2] + str(p[3]) + p[4] + p[5]
+
+def p_keys(p):
+    '''keys : string
+            | number
+            | float'''
+    p[0] = p[1]
 def p_lista(p):
     'lista : LCORCH contenido RCORCH'
     p[0] = p[1] + p[2] + p[3]
@@ -185,7 +205,8 @@ entrada1 = "var = ['cs', True , ['csdc',1]]"
 entrada2 = "if('csc' in ['cdsac']):"
 entrada3 = "elif('csc' in 'string'):"
 entrada4 = "else:"
+entrada5 = "var={\"rutaSur\":[\"lasValdivias\",\"puertoMoro\"]}"
 
-res = parser.parse(entrada)
+res = parser.parse(entrada5)
 print(res)
 
