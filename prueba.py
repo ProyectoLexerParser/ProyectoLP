@@ -4,7 +4,7 @@ import ply.yacc as yacc
 variable =[]
 tokens = [
         'NAME', 'NUMBER', 'EQUALS', 'COMILLA', 'FLOAT','TWOPOINT','ESPACIO',
-        'LPAREN', 'RPAREN','LCORCH', 'RCORCH','COMA'
+        'LPAREN', 'RPAREN','LCORCH', 'RCORCH','COMA', 'ITEMS', 'POINT'
     ]
 reservadas = {
     'in':'IN',
@@ -13,7 +13,8 @@ reservadas = {
     'elif':'ELIF',
     'print':'PRINT',
     'True': 'TRUE',
-    'False': 'FALSE'
+    'False': 'FALSE',
+    'for' : 'FOR'
 }
 
 tokens+=list(reservadas.values())
@@ -27,8 +28,8 @@ t_COMA = r'\,'
 t_EQUALS = r'='
 t_TWOPOINT = r':'
 t_ESPACIO = r'\s'
-
-
+t_ITEMS = r'items()'
+t_POINT = r'\.'
 
 def t_NAME(t):
     r'[a-z_][a-zA-z0-9_\-]*'
@@ -87,6 +88,7 @@ def p_option(p):
             | if
             | elif
             | else
+            | for
             | lista'''
     p[0] = p[1]
 
@@ -154,15 +156,37 @@ def p_sentencia(p):
     'sentencia : ESPACIO print'
     p[0] = p[1] + p[2]
 
+def p_for(p):
+    '''for : FOR LPAREN condicionfor RPAREN TWOPOINT
+            | FOR condicionfor TWOPOINT'''
+    if len(p) == 5:
+        p[0] = p[1] + p[2] + p[3] + p[4] + p[5]
+    elif len(p) == 3:
+        p[0] = p[1] + p[2] + p[3]
+def p_condicionfor(p):
+    '''condicionfor : string COMA string IN funcionitems '''
+    if p[1] != p[3]:
+        p[0] = p[1] + p[2] + p[3] + p[4] + p[5]
+
+def p_funcionitems(p):
+    'funcionitems : string POINT ITEMS'
+    p[0] = p[1] + p[2] + p[3]
+
 def p_if(p):
     '''if : IF LPAREN condicion RPAREN TWOPOINT
                 | IF condicion TWOPOINT'''
-    p[0] = p[1] + p[2] + p[3] + p[4] + p[5]
+    if len(p) == 5:
+        p[0] = p[1] + p[2] + p[3] + p[4] + p[5]
+    elif len(p) == 3:
+        p[0] = p[1] + p[2] + p[3]
 
 def p_elif(p):
     '''elif : ELIF LPAREN condicion RPAREN TWOPOINT
                 | ELIF condicion TWOPOINT'''
-    p[0] = p[1] + p[2] + p[3] + p[4] + p[5]
+    if len(p) == 5:
+        p[0] = p[1] + p[2] + p[3] + p[4] + p[5]
+    elif len(p) == 3:
+        p[0] = p[1] + p[2] + p[3]
 
 def p_else(p):
     '''else : ELSE TWOPOINT'''
@@ -180,12 +204,13 @@ def p_error(p):
     print("Syntax error!")
 
 parser = yacc.yacc()
-entrada = "print('dfsd')"
+entrada = "print('dfsvfsdf vdfd')"
 entrada1 = "var = ['cs', True , ['csdc',1]]"
 entrada2 = "if('csc' in ['cdsac']):"
 entrada3 = "elif('csc' in 'string'):"
 entrada4 = "else:"
+entrada5 = "for(clave,valor in dic.items()):"
 
-res = parser.parse(entrada)
+res = parser.parse(entrada3)
 print(res)
 
