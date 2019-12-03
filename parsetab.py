@@ -6,15 +6,9 @@ _tabversion = '3.10'
 
 _lr_method = 'LALR'
 
-<<<<<<< HEAD
-_lr_signature = 'COMA COMILLA ELIF ELSE EQUALS ESPACIO FALSE FLOAT FOR IF IN ITEMS LCORCH LPAREN NAME NUMBER POINT PRINT RCORCH RPAREN TRUE TWOPOINTopt : assign\n            | print\n            | if\n            | elif\n            | else\n            | for\n            | listaassign : var lista\n            | var string\n            | var float\n            | var number\n            | var boollista : LCORCH contenido RCORCHcontenido : items\n                | items COMA contenidoitems : string\n            | number\n            | float\n            | bool\n            | listaprint : PRINT LPAREN string RPARENvar : text EQUALStext : NAMEstring : COMILLA text COMILLA bool : TRUE\n            | FALSEfloat : FLOATnumber : NUMBERsentencia : ESPACIO printfor : FOR LPAREN condicionfor RPAREN TWOPOINT\n            | FOR condicionfor TWOPOINTcondicionfor : string COMA string IN funcionitems funcionitems : string POINT ITEMSif : IF LPAREN condicion RPAREN TWOPOINT\n                | IF condicion TWOPOINTelif : ELIF LPAREN condicion RPAREN TWOPOINT\n                | ELIF condicion TWOPOINTelse : ELSE TWOPOINTcondicion : string IN string\n                | string IN lista\n                | number IN string\n                | bool IN lista\n                | float IN lista'
+_lr_signature = 'COMA COMILLA DLLAVE ELIF ELSE EQUALS ESPACIO FALSE FLOAT FOR IF ILLAVE IN INPUT ITEMS LCORCH LPAREN NAME NUMBER POINT PRINT RCORCH RPAREN TRUE TWOPOINTopt : assign\n            | print\n            | if\n            | elif\n            | else\n            | for\n            | listaassign : var lista\n            | var string\n            | var float\n            | var number\n            | var bool\n            | var diccionario\n            | var input input : INPUT LPAREN string RPARENdiccionario : ILLAVE info DLLAVE info : keys TWOPOINT items\n            | keys TWOPOINT items COMA infokeys : string\n            | number\n            | floatlista : LCORCH contenido RCORCHcontenido : items\n                | items COMA contenidoitems : string\n            | number\n            | float\n            | bool\n            | listaprint : PRINT LPAREN string RPARENvar : text EQUALStext : NAMEstring : COMILLA text COMILLA bool : TRUE\n            | FALSEfloat : FLOATnumber : NUMBERsentencia : ESPACIO printfor : FOR LPAREN condicionfor RPAREN TWOPOINT\n            | FOR condicionfor TWOPOINTcondicionfor : NAME COMA NAME IN funcionitems funcionitems : NAME POINT ITEMS LPAREN RPARENif : IF LPAREN condicion RPAREN TWOPOINT\n                | IF condicion TWOPOINTelif : ELIF LPAREN condicion RPAREN TWOPOINT\n                | ELIF condicion TWOPOINTelse : ELSE TWOPOINTcondicion : string IN string\n                | NAME IN lista\n                | NAME IN string\n                | string IN lista\n                | number IN string\n                | bool IN lista\n                | float IN lista\n                | NAME IN NAME'
     
-_lr_action_items = {'PRINT':([0,],[10,]),'IF':([0,],[11,]),'ELIF':([0,],[12,]),'ELSE':([0,],[13,]),'FOR':([0,],[14,]),'LCORCH':([0,9,15,48,53,55,56,63,],[15,15,15,-22,15,15,15,15,]),'NAME':([0,23,],[17,17,]),'$end':([1,2,3,4,5,6,7,8,18,19,20,21,22,24,25,26,27,37,52,58,60,62,64,65,76,77,78,],[0,-1,-2,-3,-4,-5,-6,-7,-8,-9,-10,-11,-12,-27,-28,-25,-26,-38,-35,-37,-31,-13,-24,-21,-34,-36,-30,]),'COMILLA':([9,11,12,14,15,17,28,29,35,38,48,49,53,54,61,63,79,],[23,23,23,23,23,-23,23,23,23,23,-22,64,23,23,23,23,23,]),'FLOAT':([9,11,12,15,29,35,48,63,],[24,24,24,24,24,24,-22,24,]),'NUMBER':([9,11,12,15,29,35,48,63,],[25,25,25,25,25,25,-22,25,]),'TRUE':([9,11,12,15,29,35,48,63,],[26,26,26,26,26,26,-22,26,]),'FALSE':([9,11,12,15,29,35,48,63,],[27,27,27,27,27,27,-22,27,]),'LPAREN':([10,11,12,14,],[28,29,35,38,]),'TWOPOINT':([13,30,36,39,62,64,66,67,68,69,70,71,72,73,81,83,],[37,52,58,60,-13,-24,76,-39,-40,-41,-42,-43,77,78,-32,-33,]),'EQUALS':([16,17,],[48,-23,]),'IN':([24,25,26,27,31,32,33,34,64,74,],[-27,-28,-25,-26,53,54,55,56,-24,79,]),'COMA':([24,25,26,27,40,42,43,44,45,46,47,62,64,],[-27,-28,-25,-26,61,63,-16,-17,-18,-19,-20,-13,-24,]),'RCORCH':([24,25,26,27,41,42,43,44,45,46,47,62,64,75,],[-27,-28,-25,-26,62,-14,-16,-17,-18,-19,-20,-13,-24,-15,]),'RPAREN':([50,51,57,59,62,64,67,68,69,70,71,81,83,],[65,66,72,73,-13,-24,-39,-40,-41,-42,-43,-32,-33,]),'POINT':([64,80,],[-24,82,]),'ITEMS':([82,],[83,]),}
-=======
-_lr_signature = 'COMA COMILLA DLLAVE ELIF ELSE EQUALS ESPACIO FALSE FLOAT IF ILLAVE IN LCORCH LPAREN NAME NUMBER PRINT RCORCH RPAREN TRUE TWOPOINTopt : assign\n            | print\n            | if\n            | elif\n            | else assign : var lista\n            | var string\n            | var float\n            | var number\n            | var bool\n            | var diccionario diccionario : ILLAVE info DLLAVE info : keys TWOPOINT items\n            | keys TWOPOINT items COMA infokeys : string\n            | number\n            | floatlista : LCORCH contenido RCORCHcontenido : items\n                | items COMA contenidoitems : string\n            | number\n            | float\n            | bool\n            | listaprint : PRINT LPAREN string RPARENvar : text EQUALStext : NAMEstring : COMILLA text COMILLA bool : TRUE\n            | FALSEfloat : FLOATnumber : NUMBERsentencia : ESPACIO printif : IF LPAREN condicion RPAREN TWOPOINT\n                | IF condicion TWOPOINTelif : ELIF LPAREN condicion RPAREN TWOPOINT\n                | ELIF condicion TWOPOINTelse : ELSE TWOPOINTcondicion : string IN string\n                | string IN lista\n                | number IN string\n                | bool IN lista\n                | float IN lista'
-    
-_lr_action_items = {'PRINT':([0,],[8,]),'IF':([0,],[9,]),'ELIF':([0,],[10,]),'ELSE':([0,],[11,]),'NAME':([0,21,],[13,13,]),'$end':([1,2,3,4,5,6,14,15,16,17,18,19,22,23,24,25,36,53,59,60,62,63,65,75,76,],[0,-1,-2,-3,-4,-5,-6,-7,-8,-9,-10,-11,-32,-33,-30,-31,-39,-36,-38,-18,-29,-12,-26,-35,-37,]),'LCORCH':([7,20,37,54,56,57,61,64,],[20,20,-27,20,20,20,20,20,]),'COMILLA':([7,9,10,13,20,26,27,28,34,37,45,54,55,61,64,77,],[21,21,21,-28,21,21,21,21,21,-27,62,21,21,21,21,21,]),'FLOAT':([7,9,10,20,26,28,34,37,61,64,77,],[22,22,22,22,22,22,22,-27,22,22,22,]),'NUMBER':([7,9,10,20,26,28,34,37,61,64,77,],[23,23,23,23,23,23,23,-27,23,23,23,]),'TRUE':([7,9,10,20,28,34,37,61,64,],[24,24,24,24,24,24,-27,24,24,]),'FALSE':([7,9,10,20,28,34,37,61,64,],[25,25,25,25,25,25,-27,25,25,]),'ILLAVE':([7,37,],[26,-27,]),'LPAREN':([8,9,10,],[27,28,34,]),'TWOPOINT':([11,22,23,29,35,47,48,49,50,60,62,66,67,68,69,70,71,72,],[36,-32,-33,53,59,64,-15,-16,-17,-18,-29,75,-40,-41,-42,-43,-44,76,]),'EQUALS':([12,13,],[37,-28,]),'IN':([22,23,24,25,30,31,32,33,62,],[-32,-33,-30,-31,54,55,56,57,-29,]),'COMA':([22,23,24,25,39,40,41,42,43,44,60,62,74,],[-32,-33,-30,-31,61,-21,-22,-23,-24,-25,-18,-29,77,]),'RCORCH':([22,23,24,25,38,39,40,41,42,43,44,60,62,73,],[-32,-33,-30,-31,60,-19,-21,-22,-23,-24,-25,-18,-29,-20,]),'DLLAVE':([22,23,24,25,40,41,42,43,44,46,60,62,74,78,],[-32,-33,-30,-31,-21,-22,-23,-24,-25,63,-18,-29,-13,-14,]),'RPAREN':([51,52,58,60,62,67,68,69,70,71,],[65,66,72,-18,-29,-40,-41,-42,-43,-44,]),}
->>>>>>> 83f434315265db7e70f8bb9d6f3aaf30ac460c3c
+_lr_action_items = {'PRINT':([0,],[10,]),'IF':([0,],[11,]),'ELIF':([0,],[12,]),'ELSE':([0,],[13,]),'FOR':([0,],[14,]),'LCORCH':([0,9,15,53,64,65,67,68,75,78,],[15,15,15,-31,15,15,15,15,15,15,]),'NAME':([0,11,12,14,25,33,40,43,65,73,99,],[17,36,36,45,17,36,36,45,84,92,101,]),'$end':([1,2,3,4,5,6,7,8,18,19,20,21,22,23,24,26,27,28,29,42,63,70,72,74,76,77,80,95,96,97,98,],[0,-1,-2,-3,-4,-5,-6,-7,-8,-9,-10,-11,-12,-13,-14,-36,-37,-34,-35,-47,-44,-46,-40,-22,-33,-16,-30,-15,-43,-45,-39,]),'COMILLA':([9,11,12,15,17,30,32,33,40,53,54,60,64,65,66,75,78,100,],[25,25,25,25,-32,25,25,25,25,-31,76,25,25,25,25,25,25,25,]),'FLOAT':([9,11,12,15,30,33,40,53,75,78,100,],[26,26,26,26,26,26,26,-31,26,26,26,]),'NUMBER':([9,11,12,15,30,33,40,53,75,78,100,],[27,27,27,27,27,27,27,-31,27,27,27,]),'TRUE':([9,11,12,15,33,40,53,75,78,],[28,28,28,28,28,28,-31,28,28,]),'FALSE':([9,11,12,15,33,40,53,75,78,],[29,29,29,29,29,29,-31,29,29,]),'ILLAVE':([9,53,],[30,-31,]),'INPUT':([9,53,],[31,-31,]),'LPAREN':([10,11,12,14,31,105,],[32,33,40,43,60,106,]),'TWOPOINT':([13,26,27,34,41,44,56,57,58,59,74,76,81,82,83,84,85,86,87,88,89,90,91,102,107,],[42,-36,-37,63,70,72,78,-19,-20,-21,-22,-33,96,-48,-51,-55,-49,-50,-52,-53,-54,97,98,-41,-42,]),'EQUALS':([16,17,],[53,-32,]),'IN':([26,27,28,29,35,36,37,38,39,76,92,],[-36,-37,-34,-35,64,65,66,67,68,-33,99,]),'COMA':([26,27,28,29,45,47,48,49,50,51,52,74,76,94,],[-36,-37,-34,-35,73,75,-25,-26,-27,-28,-29,-22,-33,100,]),'RCORCH':([26,27,28,29,46,47,48,49,50,51,52,74,76,93,],[-36,-37,-34,-35,74,-23,-25,-26,-27,-28,-29,-22,-33,-24,]),'DLLAVE':([26,27,28,29,48,49,50,51,52,55,74,76,94,103,],[-36,-37,-34,-35,-25,-26,-27,-28,-29,77,-22,-33,-17,-18,]),'RPAREN':([61,62,69,71,74,76,79,82,83,84,85,86,87,88,89,102,106,107,],[80,81,90,91,-22,-33,95,-48,-51,-55,-49,-50,-52,-53,-54,-41,107,-42,]),'POINT':([101,],[104,]),'ITEMS':([104,],[105,]),}
 
 _lr_action = {}
 for _k, _v in _lr_action_items.items():
@@ -23,11 +17,7 @@ for _k, _v in _lr_action_items.items():
       _lr_action[_x][_k] = _y
 del _lr_action_items
 
-<<<<<<< HEAD
-_lr_goto_items = {'opt':([0,],[1,]),'assign':([0,],[2,]),'print':([0,],[3,]),'if':([0,],[4,]),'elif':([0,],[5,]),'else':([0,],[6,]),'for':([0,],[7,]),'lista':([0,9,15,53,55,56,63,],[8,18,47,68,70,71,47,]),'var':([0,],[9,]),'text':([0,23,],[16,49,]),'string':([9,11,12,14,15,28,29,35,38,53,54,61,63,79,],[19,31,31,40,43,50,31,31,40,67,69,74,43,80,]),'float':([9,11,12,15,29,35,63,],[20,34,34,45,34,34,45,]),'number':([9,11,12,15,29,35,63,],[21,32,32,44,32,32,44,]),'bool':([9,11,12,15,29,35,63,],[22,33,33,46,33,33,46,]),'condicion':([11,12,29,35,],[30,36,51,57,]),'condicionfor':([14,38,],[39,59,]),'contenido':([15,63,],[41,75,]),'items':([15,63,],[42,42,]),'funcionitems':([79,],[81,]),}
-=======
-_lr_goto_items = {'opt':([0,],[1,]),'assign':([0,],[2,]),'print':([0,],[3,]),'if':([0,],[4,]),'elif':([0,],[5,]),'else':([0,],[6,]),'var':([0,],[7,]),'text':([0,21,],[12,45,]),'lista':([7,20,54,56,57,61,64,],[14,44,68,70,71,44,44,]),'string':([7,9,10,20,26,27,28,34,54,55,61,64,77,],[15,30,30,40,48,51,30,30,67,69,40,40,48,]),'float':([7,9,10,20,26,28,34,61,64,77,],[16,33,33,42,50,33,33,42,42,50,]),'number':([7,9,10,20,26,28,34,61,64,77,],[17,31,31,41,49,31,31,41,41,49,]),'bool':([7,9,10,20,28,34,61,64,],[18,32,32,43,32,32,43,43,]),'diccionario':([7,],[19,]),'condicion':([9,10,28,34,],[29,35,52,58,]),'contenido':([20,61,],[38,73,]),'items':([20,61,64,],[39,39,74,]),'info':([26,77,],[46,78,]),'keys':([26,77,],[47,47,]),}
->>>>>>> 83f434315265db7e70f8bb9d6f3aaf30ac460c3c
+_lr_goto_items = {'opt':([0,],[1,]),'assign':([0,],[2,]),'print':([0,],[3,]),'if':([0,],[4,]),'elif':([0,],[5,]),'else':([0,],[6,]),'for':([0,],[7,]),'lista':([0,9,15,64,65,67,68,75,78,],[8,18,52,83,85,88,89,52,52,]),'var':([0,],[9,]),'text':([0,25,],[16,54,]),'string':([9,11,12,15,30,32,33,40,60,64,65,66,75,78,100,],[19,35,35,48,57,61,35,35,79,82,86,87,48,48,57,]),'float':([9,11,12,15,30,33,40,75,78,100,],[20,39,39,50,59,39,39,50,50,59,]),'number':([9,11,12,15,30,33,40,75,78,100,],[21,37,37,49,58,37,37,49,49,58,]),'bool':([9,11,12,15,33,40,75,78,],[22,38,38,51,38,38,51,51,]),'diccionario':([9,],[23,]),'input':([9,],[24,]),'condicion':([11,12,33,40,],[34,41,62,69,]),'condicionfor':([14,43,],[44,71,]),'contenido':([15,75,],[46,93,]),'items':([15,75,78,],[47,47,94,]),'info':([30,100,],[55,103,]),'keys':([30,100,],[56,56,]),'funcionitems':([99,],[102,]),}
 
 _lr_goto = {}
 for _k, _v in _lr_goto_items.items():
@@ -37,92 +27,59 @@ for _k, _v in _lr_goto_items.items():
 del _lr_goto_items
 _lr_productions = [
   ("S' -> opt","S'",1,None,None,None),
-<<<<<<< HEAD
-  ('opt -> assign','opt',1,'p_option','prueba.py',86),
-  ('opt -> print','opt',1,'p_option','prueba.py',87),
-  ('opt -> if','opt',1,'p_option','prueba.py',88),
-  ('opt -> elif','opt',1,'p_option','prueba.py',89),
-  ('opt -> else','opt',1,'p_option','prueba.py',90),
-  ('opt -> for','opt',1,'p_option','prueba.py',91),
-  ('opt -> lista','opt',1,'p_option','prueba.py',92),
-=======
-  ('opt -> assign','opt',1,'p_option','prueba.py',88),
-  ('opt -> print','opt',1,'p_option','prueba.py',89),
-  ('opt -> if','opt',1,'p_option','prueba.py',90),
-  ('opt -> elif','opt',1,'p_option','prueba.py',91),
-  ('opt -> else','opt',1,'p_option','prueba.py',92),
->>>>>>> 83f434315265db7e70f8bb9d6f3aaf30ac460c3c
-  ('assign -> var lista','assign',2,'p_assign','prueba.py',96),
-  ('assign -> var string','assign',2,'p_assign','prueba.py',97),
-  ('assign -> var float','assign',2,'p_assign','prueba.py',98),
-  ('assign -> var number','assign',2,'p_assign','prueba.py',99),
-  ('assign -> var bool','assign',2,'p_assign','prueba.py',100),
-<<<<<<< HEAD
-  ('lista -> LCORCH contenido RCORCH','lista',3,'p_lista','prueba.py',104),
-  ('contenido -> items','contenido',1,'p_contenido','prueba.py',108),
-  ('contenido -> items COMA contenido','contenido',3,'p_contenido','prueba.py',109),
-  ('items -> string','items',1,'p_items','prueba.py',116),
-  ('items -> number','items',1,'p_items','prueba.py',117),
-  ('items -> float','items',1,'p_items','prueba.py',118),
-  ('items -> bool','items',1,'p_items','prueba.py',119),
-  ('items -> lista','items',1,'p_items','prueba.py',120),
-  ('print -> PRINT LPAREN string RPAREN','print',4,'p_print','prueba.py',124),
-  ('var -> text EQUALS','var',2,'p_var','prueba.py',128),
-  ('text -> NAME','text',1,'p_text','prueba.py',133),
-  ('string -> COMILLA text COMILLA','string',3,'p_string','prueba.py',137),
-  ('bool -> TRUE','bool',1,'p_bool','prueba.py',141),
-  ('bool -> FALSE','bool',1,'p_bool','prueba.py',142),
-  ('float -> FLOAT','float',1,'p_float','prueba.py',146),
-  ('number -> NUMBER','number',1,'p_number','prueba.py',150),
-  ('sentencia -> ESPACIO print','sentencia',2,'p_sentencia','prueba.py',156),
-  ('for -> FOR LPAREN condicionfor RPAREN TWOPOINT','for',5,'p_for','prueba.py',160),
-  ('for -> FOR condicionfor TWOPOINT','for',3,'p_for','prueba.py',161),
-  ('condicionfor -> string COMA string IN funcionitems','condicionfor',5,'p_condicionfor','prueba.py',167),
-  ('funcionitems -> string POINT ITEMS','funcionitems',3,'p_funcionitems','prueba.py',171),
-  ('if -> IF LPAREN condicion RPAREN TWOPOINT','if',5,'p_if','prueba.py',175),
-  ('if -> IF condicion TWOPOINT','if',3,'p_if','prueba.py',176),
-  ('elif -> ELIF LPAREN condicion RPAREN TWOPOINT','elif',5,'p_elif','prueba.py',183),
-  ('elif -> ELIF condicion TWOPOINT','elif',3,'p_elif','prueba.py',184),
-  ('else -> ELSE TWOPOINT','else',2,'p_else','prueba.py',191),
-  ('condicion -> string IN string','condicion',3,'p_condicion','prueba.py',195),
-  ('condicion -> string IN lista','condicion',3,'p_condicion','prueba.py',196),
-  ('condicion -> number IN string','condicion',3,'p_condicion','prueba.py',197),
-  ('condicion -> bool IN lista','condicion',3,'p_condicion','prueba.py',198),
-  ('condicion -> float IN lista','condicion',3,'p_condicion','prueba.py',199),
-=======
-  ('assign -> var diccionario','assign',2,'p_assign','prueba.py',101),
-  ('diccionario -> ILLAVE info DLLAVE','diccionario',3,'p_diccionario','prueba.py',105),
-  ('info -> keys TWOPOINT items','info',3,'p_info','prueba.py',109),
-  ('info -> keys TWOPOINT items COMA info','info',5,'p_info','prueba.py',110),
-  ('keys -> string','keys',1,'p_keys','prueba.py',117),
-  ('keys -> number','keys',1,'p_keys','prueba.py',118),
-  ('keys -> float','keys',1,'p_keys','prueba.py',119),
-  ('lista -> LCORCH contenido RCORCH','lista',3,'p_lista','prueba.py',122),
-  ('contenido -> items','contenido',1,'p_contenido','prueba.py',126),
-  ('contenido -> items COMA contenido','contenido',3,'p_contenido','prueba.py',127),
-  ('items -> string','items',1,'p_items','prueba.py',134),
-  ('items -> number','items',1,'p_items','prueba.py',135),
-  ('items -> float','items',1,'p_items','prueba.py',136),
-  ('items -> bool','items',1,'p_items','prueba.py',137),
-  ('items -> lista','items',1,'p_items','prueba.py',138),
-  ('print -> PRINT LPAREN string RPAREN','print',4,'p_print','prueba.py',142),
-  ('var -> text EQUALS','var',2,'p_var','prueba.py',146),
-  ('text -> NAME','text',1,'p_text','prueba.py',151),
-  ('string -> COMILLA text COMILLA','string',3,'p_string','prueba.py',155),
-  ('bool -> TRUE','bool',1,'p_bool','prueba.py',159),
-  ('bool -> FALSE','bool',1,'p_bool','prueba.py',160),
-  ('float -> FLOAT','float',1,'p_float','prueba.py',164),
-  ('number -> NUMBER','number',1,'p_number','prueba.py',168),
-  ('sentencia -> ESPACIO print','sentencia',2,'p_sentencia','prueba.py',174),
-  ('if -> IF LPAREN condicion RPAREN TWOPOINT','if',5,'p_if','prueba.py',178),
-  ('if -> IF condicion TWOPOINT','if',3,'p_if','prueba.py',179),
-  ('elif -> ELIF LPAREN condicion RPAREN TWOPOINT','elif',5,'p_elif','prueba.py',183),
-  ('elif -> ELIF condicion TWOPOINT','elif',3,'p_elif','prueba.py',184),
-  ('else -> ELSE TWOPOINT','else',2,'p_else','prueba.py',188),
-  ('condicion -> string IN string','condicion',3,'p_condicion','prueba.py',192),
-  ('condicion -> string IN lista','condicion',3,'p_condicion','prueba.py',193),
-  ('condicion -> number IN string','condicion',3,'p_condicion','prueba.py',194),
-  ('condicion -> bool IN lista','condicion',3,'p_condicion','prueba.py',195),
-  ('condicion -> float IN lista','condicion',3,'p_condicion','prueba.py',196),
->>>>>>> 83f434315265db7e70f8bb9d6f3aaf30ac460c3c
+  ('opt -> assign','opt',1,'p_option','prueba.py',91),
+  ('opt -> print','opt',1,'p_option','prueba.py',92),
+  ('opt -> if','opt',1,'p_option','prueba.py',93),
+  ('opt -> elif','opt',1,'p_option','prueba.py',94),
+  ('opt -> else','opt',1,'p_option','prueba.py',95),
+  ('opt -> for','opt',1,'p_option','prueba.py',96),
+  ('opt -> lista','opt',1,'p_option','prueba.py',97),
+  ('assign -> var lista','assign',2,'p_assign','prueba.py',101),
+  ('assign -> var string','assign',2,'p_assign','prueba.py',102),
+  ('assign -> var float','assign',2,'p_assign','prueba.py',103),
+  ('assign -> var number','assign',2,'p_assign','prueba.py',104),
+  ('assign -> var bool','assign',2,'p_assign','prueba.py',105),
+  ('assign -> var diccionario','assign',2,'p_assign','prueba.py',106),
+  ('assign -> var input','assign',2,'p_assign','prueba.py',107),
+  ('input -> INPUT LPAREN string RPAREN','input',4,'p_input','prueba.py',111),
+  ('diccionario -> ILLAVE info DLLAVE','diccionario',3,'p_diccionario','prueba.py',115),
+  ('info -> keys TWOPOINT items','info',3,'p_info','prueba.py',119),
+  ('info -> keys TWOPOINT items COMA info','info',5,'p_info','prueba.py',120),
+  ('keys -> string','keys',1,'p_keys','prueba.py',127),
+  ('keys -> number','keys',1,'p_keys','prueba.py',128),
+  ('keys -> float','keys',1,'p_keys','prueba.py',129),
+  ('lista -> LCORCH contenido RCORCH','lista',3,'p_lista','prueba.py',133),
+  ('contenido -> items','contenido',1,'p_contenido','prueba.py',137),
+  ('contenido -> items COMA contenido','contenido',3,'p_contenido','prueba.py',138),
+  ('items -> string','items',1,'p_items','prueba.py',145),
+  ('items -> number','items',1,'p_items','prueba.py',146),
+  ('items -> float','items',1,'p_items','prueba.py',147),
+  ('items -> bool','items',1,'p_items','prueba.py',148),
+  ('items -> lista','items',1,'p_items','prueba.py',149),
+  ('print -> PRINT LPAREN string RPAREN','print',4,'p_print','prueba.py',153),
+  ('var -> text EQUALS','var',2,'p_var','prueba.py',157),
+  ('text -> NAME','text',1,'p_text','prueba.py',162),
+  ('string -> COMILLA text COMILLA','string',3,'p_string','prueba.py',166),
+  ('bool -> TRUE','bool',1,'p_bool','prueba.py',170),
+  ('bool -> FALSE','bool',1,'p_bool','prueba.py',171),
+  ('float -> FLOAT','float',1,'p_float','prueba.py',175),
+  ('number -> NUMBER','number',1,'p_number','prueba.py',179),
+  ('sentencia -> ESPACIO print','sentencia',2,'p_sentencia','prueba.py',185),
+  ('for -> FOR LPAREN condicionfor RPAREN TWOPOINT','for',5,'p_for','prueba.py',189),
+  ('for -> FOR condicionfor TWOPOINT','for',3,'p_for','prueba.py',190),
+  ('condicionfor -> NAME COMA NAME IN funcionitems','condicionfor',5,'p_condicionfor','prueba.py',197),
+  ('funcionitems -> NAME POINT ITEMS LPAREN RPAREN','funcionitems',5,'p_funcionitems','prueba.py',203),
+  ('if -> IF LPAREN condicion RPAREN TWOPOINT','if',5,'p_if','prueba.py',207),
+  ('if -> IF condicion TWOPOINT','if',3,'p_if','prueba.py',208),
+  ('elif -> ELIF LPAREN condicion RPAREN TWOPOINT','elif',5,'p_elif','prueba.py',215),
+  ('elif -> ELIF condicion TWOPOINT','elif',3,'p_elif','prueba.py',216),
+  ('else -> ELSE TWOPOINT','else',2,'p_else','prueba.py',223),
+  ('condicion -> string IN string','condicion',3,'p_condicion','prueba.py',227),
+  ('condicion -> NAME IN lista','condicion',3,'p_condicion','prueba.py',228),
+  ('condicion -> NAME IN string','condicion',3,'p_condicion','prueba.py',229),
+  ('condicion -> string IN lista','condicion',3,'p_condicion','prueba.py',230),
+  ('condicion -> number IN string','condicion',3,'p_condicion','prueba.py',231),
+  ('condicion -> bool IN lista','condicion',3,'p_condicion','prueba.py',232),
+  ('condicion -> float IN lista','condicion',3,'p_condicion','prueba.py',233),
+  ('condicion -> NAME IN NAME','condicion',3,'p_condicion','prueba.py',234),
 ]

@@ -8,7 +8,6 @@ Rule 2     opt -> print
 Rule 3     opt -> if
 Rule 4     opt -> elif
 Rule 5     opt -> else
-<<<<<<< HEAD
 Rule 6     opt -> for
 Rule 7     opt -> lista
 Rule 8     assign -> var lista
@@ -16,173 +15,105 @@ Rule 9     assign -> var string
 Rule 10    assign -> var float
 Rule 11    assign -> var number
 Rule 12    assign -> var bool
-Rule 13    lista -> LCORCH contenido RCORCH
-Rule 14    contenido -> items
-Rule 15    contenido -> items COMA contenido
-Rule 16    items -> string
-Rule 17    items -> number
-Rule 18    items -> float
-Rule 19    items -> bool
-Rule 20    items -> lista
-Rule 21    print -> PRINT LPAREN string RPAREN
-Rule 22    var -> text EQUALS
-Rule 23    text -> NAME
-Rule 24    string -> COMILLA text COMILLA
-Rule 25    bool -> TRUE
-Rule 26    bool -> FALSE
-Rule 27    float -> FLOAT
-Rule 28    number -> NUMBER
-Rule 29    sentencia -> ESPACIO print
-Rule 30    for -> FOR LPAREN condicionfor RPAREN TWOPOINT
-Rule 31    for -> FOR condicionfor TWOPOINT
-Rule 32    condicionfor -> string COMA string IN funcionitems
-Rule 33    funcionitems -> string POINT ITEMS
-Rule 34    if -> IF LPAREN condicion RPAREN TWOPOINT
-Rule 35    if -> IF condicion TWOPOINT
-Rule 36    elif -> ELIF LPAREN condicion RPAREN TWOPOINT
-Rule 37    elif -> ELIF condicion TWOPOINT
-Rule 38    else -> ELSE TWOPOINT
-Rule 39    condicion -> string IN string
-Rule 40    condicion -> string IN lista
-Rule 41    condicion -> number IN string
-Rule 42    condicion -> bool IN lista
-Rule 43    condicion -> float IN lista
+Rule 13    assign -> var diccionario
+Rule 14    assign -> var input
+Rule 15    input -> INPUT LPAREN string RPAREN
+Rule 16    diccionario -> ILLAVE info DLLAVE
+Rule 17    info -> keys TWOPOINT items
+Rule 18    info -> keys TWOPOINT items COMA info
+Rule 19    keys -> string
+Rule 20    keys -> number
+Rule 21    keys -> float
+Rule 22    lista -> LCORCH contenido RCORCH
+Rule 23    contenido -> items
+Rule 24    contenido -> items COMA contenido
+Rule 25    items -> string
+Rule 26    items -> number
+Rule 27    items -> float
+Rule 28    items -> bool
+Rule 29    items -> lista
+Rule 30    print -> PRINT LPAREN string RPAREN
+Rule 31    var -> text EQUALS
+Rule 32    text -> NAME
+Rule 33    string -> COMILLA text COMILLA
+Rule 34    bool -> TRUE
+Rule 35    bool -> FALSE
+Rule 36    float -> FLOAT
+Rule 37    number -> NUMBER
+Rule 38    sentencia -> ESPACIO print
+Rule 39    for -> FOR LPAREN condicionfor RPAREN TWOPOINT
+Rule 40    for -> FOR condicionfor TWOPOINT
+Rule 41    condicionfor -> NAME COMA NAME IN funcionitems
+Rule 42    funcionitems -> NAME POINT ITEMS LPAREN RPAREN
+Rule 43    if -> IF LPAREN condicion RPAREN TWOPOINT
+Rule 44    if -> IF condicion TWOPOINT
+Rule 45    elif -> ELIF LPAREN condicion RPAREN TWOPOINT
+Rule 46    elif -> ELIF condicion TWOPOINT
+Rule 47    else -> ELSE TWOPOINT
+Rule 48    condicion -> string IN string
+Rule 49    condicion -> NAME IN lista
+Rule 50    condicion -> NAME IN string
+Rule 51    condicion -> string IN lista
+Rule 52    condicion -> number IN string
+Rule 53    condicion -> bool IN lista
+Rule 54    condicion -> float IN lista
+Rule 55    condicion -> NAME IN NAME
 
 Terminals, with rules where they appear
 
-COMA                 : 15 32
-COMILLA              : 24 24
-ELIF                 : 36 37
-ELSE                 : 38
-EQUALS               : 22
-ESPACIO              : 29
-FALSE                : 26
-FLOAT                : 27
-FOR                  : 30 31
-IF                   : 34 35
-IN                   : 32 39 40 41 42 43
-ITEMS                : 33
-LCORCH               : 13
-LPAREN               : 21 30 34 36
-NAME                 : 23
-NUMBER               : 28
-POINT                : 33
-PRINT                : 21
-RCORCH               : 13
-RPAREN               : 21 30 34 36
-TRUE                 : 25
-TWOPOINT             : 30 31 34 35 36 37 38
-=======
-Rule 6     assign -> var lista
-Rule 7     assign -> var string
-Rule 8     assign -> var float
-Rule 9     assign -> var number
-Rule 10    assign -> var bool
-Rule 11    assign -> var diccionario
-Rule 12    diccionario -> ILLAVE info DLLAVE
-Rule 13    info -> keys TWOPOINT items
-Rule 14    info -> keys TWOPOINT items COMA info
-Rule 15    keys -> string
-Rule 16    keys -> number
-Rule 17    keys -> float
-Rule 18    lista -> LCORCH contenido RCORCH
-Rule 19    contenido -> items
-Rule 20    contenido -> items COMA contenido
-Rule 21    items -> string
-Rule 22    items -> number
-Rule 23    items -> float
-Rule 24    items -> bool
-Rule 25    items -> lista
-Rule 26    print -> PRINT LPAREN string RPAREN
-Rule 27    var -> text EQUALS
-Rule 28    text -> NAME
-Rule 29    string -> COMILLA text COMILLA
-Rule 30    bool -> TRUE
-Rule 31    bool -> FALSE
-Rule 32    float -> FLOAT
-Rule 33    number -> NUMBER
-Rule 34    sentencia -> ESPACIO print
-Rule 35    if -> IF LPAREN condicion RPAREN TWOPOINT
-Rule 36    if -> IF condicion TWOPOINT
-Rule 37    elif -> ELIF LPAREN condicion RPAREN TWOPOINT
-Rule 38    elif -> ELIF condicion TWOPOINT
-Rule 39    else -> ELSE TWOPOINT
-Rule 40    condicion -> string IN string
-Rule 41    condicion -> string IN lista
-Rule 42    condicion -> number IN string
-Rule 43    condicion -> bool IN lista
-Rule 44    condicion -> float IN lista
-
-Terminals, with rules where they appear
-
-COMA                 : 14 20
-COMILLA              : 29 29
-DLLAVE               : 12
-ELIF                 : 37 38
-ELSE                 : 39
-EQUALS               : 27
-ESPACIO              : 34
-FALSE                : 31
-FLOAT                : 32
-IF                   : 35 36
-ILLAVE               : 12
-IN                   : 40 41 42 43 44
-LCORCH               : 18
-LPAREN               : 26 35 37
-NAME                 : 28
-NUMBER               : 33
-PRINT                : 26
-RCORCH               : 18
-RPAREN               : 26 35 37
-TRUE                 : 30
-TWOPOINT             : 13 14 35 36 37 38 39
->>>>>>> 83f434315265db7e70f8bb9d6f3aaf30ac460c3c
+COMA                 : 18 24 41
+COMILLA              : 33 33
+DLLAVE               : 16
+ELIF                 : 45 46
+ELSE                 : 47
+EQUALS               : 31
+ESPACIO              : 38
+FALSE                : 35
+FLOAT                : 36
+FOR                  : 39 40
+IF                   : 43 44
+ILLAVE               : 16
+IN                   : 41 48 49 50 51 52 53 54 55
+INPUT                : 15
+ITEMS                : 42
+LCORCH               : 22
+LPAREN               : 15 30 39 42 43 45
+NAME                 : 32 41 41 42 49 50 55 55
+NUMBER               : 37
+POINT                : 42
+PRINT                : 30
+RCORCH               : 22
+RPAREN               : 15 30 39 42 43 45
+TRUE                 : 34
+TWOPOINT             : 17 18 39 40 43 44 45 46 47
 error                : 
 
 Nonterminals, with rules where they appear
 
 assign               : 1
-<<<<<<< HEAD
-bool                 : 12 19 42
-condicion            : 34 35 36 37
-condicionfor         : 30 31
-contenido            : 13 15
+bool                 : 12 28 53
+condicion            : 43 44 45 46
+condicionfor         : 39 40
+contenido            : 22 24
+diccionario          : 13
 elif                 : 4
 else                 : 5
-float                : 10 18 43
+float                : 10 21 27 54
 for                  : 6
-funcionitems         : 32
+funcionitems         : 41
 if                   : 3
-items                : 14 15
-lista                : 7 8 20 40 42 43
-number               : 11 17 41
+info                 : 16 18
+input                : 14
+items                : 17 18 23 24
+keys                 : 17 18
+lista                : 7 8 29 49 51 53 54
+number               : 11 20 26 52
 opt                  : 0
-print                : 2 29
+print                : 2 38
 sentencia            : 
-string               : 9 16 21 32 32 33 39 39 40 41
-text                 : 22 24
-var                  : 8 9 10 11 12
-=======
-bool                 : 10 24 43
-condicion            : 35 36 37 38
-contenido            : 18 20
-diccionario          : 11
-elif                 : 4
-else                 : 5
-float                : 8 17 23 44
-if                   : 3
-info                 : 12 14
-items                : 13 14 19 20
-keys                 : 13 14
-lista                : 6 25 41 43 44
-number               : 9 16 22 42
-opt                  : 0
-print                : 2 34
-sentencia            : 
-string               : 7 15 21 26 40 40 41 42
-text                 : 27 29
-var                  : 6 7 8 9 10 11
->>>>>>> 83f434315265db7e70f8bb9d6f3aaf30ac460c3c
+string               : 9 15 19 25 30 48 48 50 51 52
+text                 : 31 33
+var                  : 8 9 10 11 12 13 14
 
 Parsing method: LALR
 
@@ -194,7 +125,6 @@ state 0
     (3) opt -> . if
     (4) opt -> . elif
     (5) opt -> . else
-<<<<<<< HEAD
     (6) opt -> . for
     (7) opt -> . lista
     (8) assign -> . var lista
@@ -202,17 +132,19 @@ state 0
     (10) assign -> . var float
     (11) assign -> . var number
     (12) assign -> . var bool
-    (21) print -> . PRINT LPAREN string RPAREN
-    (34) if -> . IF LPAREN condicion RPAREN TWOPOINT
-    (35) if -> . IF condicion TWOPOINT
-    (36) elif -> . ELIF LPAREN condicion RPAREN TWOPOINT
-    (37) elif -> . ELIF condicion TWOPOINT
-    (38) else -> . ELSE TWOPOINT
-    (30) for -> . FOR LPAREN condicionfor RPAREN TWOPOINT
-    (31) for -> . FOR condicionfor TWOPOINT
-    (13) lista -> . LCORCH contenido RCORCH
-    (22) var -> . text EQUALS
-    (23) text -> . NAME
+    (13) assign -> . var diccionario
+    (14) assign -> . var input
+    (30) print -> . PRINT LPAREN string RPAREN
+    (43) if -> . IF LPAREN condicion RPAREN TWOPOINT
+    (44) if -> . IF condicion TWOPOINT
+    (45) elif -> . ELIF LPAREN condicion RPAREN TWOPOINT
+    (46) elif -> . ELIF condicion TWOPOINT
+    (47) else -> . ELSE TWOPOINT
+    (39) for -> . FOR LPAREN condicionfor RPAREN TWOPOINT
+    (40) for -> . FOR condicionfor TWOPOINT
+    (22) lista -> . LCORCH contenido RCORCH
+    (31) var -> . text EQUALS
+    (32) text -> . NAME
 
     PRINT           shift and go to state 10
     IF              shift and go to state 11
@@ -221,28 +153,6 @@ state 0
     FOR             shift and go to state 14
     LCORCH          shift and go to state 15
     NAME            shift and go to state 17
-=======
-    (6) assign -> . var lista
-    (7) assign -> . var string
-    (8) assign -> . var float
-    (9) assign -> . var number
-    (10) assign -> . var bool
-    (11) assign -> . var diccionario
-    (26) print -> . PRINT LPAREN string RPAREN
-    (35) if -> . IF LPAREN condicion RPAREN TWOPOINT
-    (36) if -> . IF condicion TWOPOINT
-    (37) elif -> . ELIF LPAREN condicion RPAREN TWOPOINT
-    (38) elif -> . ELIF condicion TWOPOINT
-    (39) else -> . ELSE TWOPOINT
-    (27) var -> . text EQUALS
-    (28) text -> . NAME
-
-    PRINT           shift and go to state 8
-    IF              shift and go to state 9
-    ELIF            shift and go to state 10
-    ELSE            shift and go to state 11
-    NAME            shift and go to state 13
->>>>>>> 83f434315265db7e70f8bb9d6f3aaf30ac460c3c
 
     opt                            shift and go to state 1
     assign                         shift and go to state 2
@@ -250,15 +160,10 @@ state 0
     if                             shift and go to state 4
     elif                           shift and go to state 5
     else                           shift and go to state 6
-<<<<<<< HEAD
     for                            shift and go to state 7
     lista                          shift and go to state 8
     var                            shift and go to state 9
     text                           shift and go to state 16
-=======
-    var                            shift and go to state 7
-    text                           shift and go to state 12
->>>>>>> 83f434315265db7e70f8bb9d6f3aaf30ac460c3c
 
 state 1
 
@@ -303,7 +208,6 @@ state 6
 
 state 7
 
-<<<<<<< HEAD
     (6) opt -> for .
 
     $end            reduce using rule 6 (opt -> for .)
@@ -323,362 +227,193 @@ state 9
     (10) assign -> var . float
     (11) assign -> var . number
     (12) assign -> var . bool
-    (13) lista -> . LCORCH contenido RCORCH
-    (24) string -> . COMILLA text COMILLA
-    (27) float -> . FLOAT
-    (28) number -> . NUMBER
-    (25) bool -> . TRUE
-    (26) bool -> . FALSE
+    (13) assign -> var . diccionario
+    (14) assign -> var . input
+    (22) lista -> . LCORCH contenido RCORCH
+    (33) string -> . COMILLA text COMILLA
+    (36) float -> . FLOAT
+    (37) number -> . NUMBER
+    (34) bool -> . TRUE
+    (35) bool -> . FALSE
+    (16) diccionario -> . ILLAVE info DLLAVE
+    (15) input -> . INPUT LPAREN string RPAREN
 
     LCORCH          shift and go to state 15
-    COMILLA         shift and go to state 23
-    FLOAT           shift and go to state 24
-    NUMBER          shift and go to state 25
-    TRUE            shift and go to state 26
-    FALSE           shift and go to state 27
+    COMILLA         shift and go to state 25
+    FLOAT           shift and go to state 26
+    NUMBER          shift and go to state 27
+    TRUE            shift and go to state 28
+    FALSE           shift and go to state 29
+    ILLAVE          shift and go to state 30
+    INPUT           shift and go to state 31
 
     lista                          shift and go to state 18
     string                         shift and go to state 19
     float                          shift and go to state 20
     number                         shift and go to state 21
     bool                           shift and go to state 22
-=======
-    (6) assign -> var . lista
-    (7) assign -> var . string
-    (8) assign -> var . float
-    (9) assign -> var . number
-    (10) assign -> var . bool
-    (11) assign -> var . diccionario
-    (18) lista -> . LCORCH contenido RCORCH
-    (29) string -> . COMILLA text COMILLA
-    (32) float -> . FLOAT
-    (33) number -> . NUMBER
-    (30) bool -> . TRUE
-    (31) bool -> . FALSE
-    (12) diccionario -> . ILLAVE info DLLAVE
-
-    LCORCH          shift and go to state 20
-    COMILLA         shift and go to state 21
-    FLOAT           shift and go to state 22
-    NUMBER          shift and go to state 23
-    TRUE            shift and go to state 24
-    FALSE           shift and go to state 25
-    ILLAVE          shift and go to state 26
-
-    lista                          shift and go to state 14
-    string                         shift and go to state 15
-    float                          shift and go to state 16
-    number                         shift and go to state 17
-    bool                           shift and go to state 18
-    diccionario                    shift and go to state 19
-
-state 8
-
-    (26) print -> PRINT . LPAREN string RPAREN
-
-    LPAREN          shift and go to state 27
->>>>>>> 83f434315265db7e70f8bb9d6f3aaf30ac460c3c
-
-
-<<<<<<< HEAD
-    (21) print -> PRINT . LPAREN string RPAREN
-
-    LPAREN          shift and go to state 28
-
-=======
-state 9
-
-    (35) if -> IF . LPAREN condicion RPAREN TWOPOINT
-    (36) if -> IF . condicion TWOPOINT
-    (40) condicion -> . string IN string
-    (41) condicion -> . string IN lista
-    (42) condicion -> . number IN string
-    (43) condicion -> . bool IN lista
-    (44) condicion -> . float IN lista
-    (29) string -> . COMILLA text COMILLA
-    (33) number -> . NUMBER
-    (30) bool -> . TRUE
-    (31) bool -> . FALSE
-    (32) float -> . FLOAT
-
-    LPAREN          shift and go to state 28
-    COMILLA         shift and go to state 21
-    NUMBER          shift and go to state 23
-    TRUE            shift and go to state 24
-    FALSE           shift and go to state 25
-    FLOAT           shift and go to state 22
-
-    condicion                      shift and go to state 29
-    string                         shift and go to state 30
-    number                         shift and go to state 31
-    bool                           shift and go to state 32
-    float                          shift and go to state 33
->>>>>>> 83f434315265db7e70f8bb9d6f3aaf30ac460c3c
+    diccionario                    shift and go to state 23
+    input                          shift and go to state 24
 
 state 10
 
-<<<<<<< HEAD
-    (34) if -> IF . LPAREN condicion RPAREN TWOPOINT
-    (35) if -> IF . condicion TWOPOINT
-    (39) condicion -> . string IN string
-    (40) condicion -> . string IN lista
-    (41) condicion -> . number IN string
-    (42) condicion -> . bool IN lista
-    (43) condicion -> . float IN lista
-    (24) string -> . COMILLA text COMILLA
-    (28) number -> . NUMBER
-    (25) bool -> . TRUE
-    (26) bool -> . FALSE
-    (27) float -> . FLOAT
+    (30) print -> PRINT . LPAREN string RPAREN
 
-    LPAREN          shift and go to state 29
-    COMILLA         shift and go to state 23
-    NUMBER          shift and go to state 25
-    TRUE            shift and go to state 26
-    FALSE           shift and go to state 27
-    FLOAT           shift and go to state 24
+    LPAREN          shift and go to state 32
 
-    condicion                      shift and go to state 30
-    string                         shift and go to state 31
-    number                         shift and go to state 32
-    bool                           shift and go to state 33
-    float                          shift and go to state 34
-
-state 12
-
-    (36) elif -> ELIF . LPAREN condicion RPAREN TWOPOINT
-    (37) elif -> ELIF . condicion TWOPOINT
-    (39) condicion -> . string IN string
-    (40) condicion -> . string IN lista
-    (41) condicion -> . number IN string
-    (42) condicion -> . bool IN lista
-    (43) condicion -> . float IN lista
-    (24) string -> . COMILLA text COMILLA
-    (28) number -> . NUMBER
-    (25) bool -> . TRUE
-    (26) bool -> . FALSE
-    (27) float -> . FLOAT
-
-    LPAREN          shift and go to state 35
-    COMILLA         shift and go to state 23
-    NUMBER          shift and go to state 25
-    TRUE            shift and go to state 26
-    FALSE           shift and go to state 27
-    FLOAT           shift and go to state 24
-
-    condicion                      shift and go to state 36
-    string                         shift and go to state 31
-    number                         shift and go to state 32
-    bool                           shift and go to state 33
-    float                          shift and go to state 34
-
-state 13
-=======
-    (37) elif -> ELIF . LPAREN condicion RPAREN TWOPOINT
-    (38) elif -> ELIF . condicion TWOPOINT
-    (40) condicion -> . string IN string
-    (41) condicion -> . string IN lista
-    (42) condicion -> . number IN string
-    (43) condicion -> . bool IN lista
-    (44) condicion -> . float IN lista
-    (29) string -> . COMILLA text COMILLA
-    (33) number -> . NUMBER
-    (30) bool -> . TRUE
-    (31) bool -> . FALSE
-    (32) float -> . FLOAT
-
-    LPAREN          shift and go to state 34
-    COMILLA         shift and go to state 21
-    NUMBER          shift and go to state 23
-    TRUE            shift and go to state 24
-    FALSE           shift and go to state 25
-    FLOAT           shift and go to state 22
-
-    condicion                      shift and go to state 35
-    string                         shift and go to state 30
-    number                         shift and go to state 31
-    bool                           shift and go to state 32
-    float                          shift and go to state 33
 
 state 11
 
-    (39) else -> ELSE . TWOPOINT
+    (43) if -> IF . LPAREN condicion RPAREN TWOPOINT
+    (44) if -> IF . condicion TWOPOINT
+    (48) condicion -> . string IN string
+    (49) condicion -> . NAME IN lista
+    (50) condicion -> . NAME IN string
+    (51) condicion -> . string IN lista
+    (52) condicion -> . number IN string
+    (53) condicion -> . bool IN lista
+    (54) condicion -> . float IN lista
+    (55) condicion -> . NAME IN NAME
+    (33) string -> . COMILLA text COMILLA
+    (37) number -> . NUMBER
+    (34) bool -> . TRUE
+    (35) bool -> . FALSE
+    (36) float -> . FLOAT
 
-    TWOPOINT        shift and go to state 36
+    LPAREN          shift and go to state 33
+    NAME            shift and go to state 36
+    COMILLA         shift and go to state 25
+    NUMBER          shift and go to state 27
+    TRUE            shift and go to state 28
+    FALSE           shift and go to state 29
+    FLOAT           shift and go to state 26
 
+    condicion                      shift and go to state 34
+    string                         shift and go to state 35
+    number                         shift and go to state 37
+    bool                           shift and go to state 38
+    float                          shift and go to state 39
 
 state 12
 
-    (27) var -> text . EQUALS
+    (45) elif -> ELIF . LPAREN condicion RPAREN TWOPOINT
+    (46) elif -> ELIF . condicion TWOPOINT
+    (48) condicion -> . string IN string
+    (49) condicion -> . NAME IN lista
+    (50) condicion -> . NAME IN string
+    (51) condicion -> . string IN lista
+    (52) condicion -> . number IN string
+    (53) condicion -> . bool IN lista
+    (54) condicion -> . float IN lista
+    (55) condicion -> . NAME IN NAME
+    (33) string -> . COMILLA text COMILLA
+    (37) number -> . NUMBER
+    (34) bool -> . TRUE
+    (35) bool -> . FALSE
+    (36) float -> . FLOAT
 
-    EQUALS          shift and go to state 37
->>>>>>> 83f434315265db7e70f8bb9d6f3aaf30ac460c3c
+    LPAREN          shift and go to state 40
+    NAME            shift and go to state 36
+    COMILLA         shift and go to state 25
+    NUMBER          shift and go to state 27
+    TRUE            shift and go to state 28
+    FALSE           shift and go to state 29
+    FLOAT           shift and go to state 26
 
-    (38) else -> ELSE . TWOPOINT
+    condicion                      shift and go to state 41
+    string                         shift and go to state 35
+    number                         shift and go to state 37
+    bool                           shift and go to state 38
+    float                          shift and go to state 39
 
-    TWOPOINT        shift and go to state 37
+state 13
 
-<<<<<<< HEAD
+    (47) else -> ELSE . TWOPOINT
+
+    TWOPOINT        shift and go to state 42
+
 
 state 14
 
-    (30) for -> FOR . LPAREN condicionfor RPAREN TWOPOINT
-    (31) for -> FOR . condicionfor TWOPOINT
-    (32) condicionfor -> . string COMA string IN funcionitems
-    (24) string -> . COMILLA text COMILLA
+    (39) for -> FOR . LPAREN condicionfor RPAREN TWOPOINT
+    (40) for -> FOR . condicionfor TWOPOINT
+    (41) condicionfor -> . NAME COMA NAME IN funcionitems
 
-    LPAREN          shift and go to state 38
-    COMILLA         shift and go to state 23
-=======
-    (28) text -> NAME .
+    LPAREN          shift and go to state 43
+    NAME            shift and go to state 45
 
-    EQUALS          reduce using rule 28 (text -> NAME .)
-    COMILLA         reduce using rule 28 (text -> NAME .)
-
-
-state 14
-
-    (6) assign -> var lista .
-
-    $end            reduce using rule 6 (assign -> var lista .)
->>>>>>> 83f434315265db7e70f8bb9d6f3aaf30ac460c3c
-
-    condicionfor                   shift and go to state 39
-    string                         shift and go to state 40
+    condicionfor                   shift and go to state 44
 
 state 15
 
-<<<<<<< HEAD
-    (13) lista -> LCORCH . contenido RCORCH
-    (14) contenido -> . items
-    (15) contenido -> . items COMA contenido
-    (16) items -> . string
-    (17) items -> . number
-    (18) items -> . float
-    (19) items -> . bool
-    (20) items -> . lista
-    (24) string -> . COMILLA text COMILLA
-    (28) number -> . NUMBER
-    (27) float -> . FLOAT
-    (25) bool -> . TRUE
-    (26) bool -> . FALSE
-    (13) lista -> . LCORCH contenido RCORCH
+    (22) lista -> LCORCH . contenido RCORCH
+    (23) contenido -> . items
+    (24) contenido -> . items COMA contenido
+    (25) items -> . string
+    (26) items -> . number
+    (27) items -> . float
+    (28) items -> . bool
+    (29) items -> . lista
+    (33) string -> . COMILLA text COMILLA
+    (37) number -> . NUMBER
+    (36) float -> . FLOAT
+    (34) bool -> . TRUE
+    (35) bool -> . FALSE
+    (22) lista -> . LCORCH contenido RCORCH
 
-    COMILLA         shift and go to state 23
-    NUMBER          shift and go to state 25
-    FLOAT           shift and go to state 24
-    TRUE            shift and go to state 26
-    FALSE           shift and go to state 27
+    COMILLA         shift and go to state 25
+    NUMBER          shift and go to state 27
+    FLOAT           shift and go to state 26
+    TRUE            shift and go to state 28
+    FALSE           shift and go to state 29
     LCORCH          shift and go to state 15
 
-    contenido                      shift and go to state 41
-    items                          shift and go to state 42
-    string                         shift and go to state 43
-    number                         shift and go to state 44
-    float                          shift and go to state 45
-    bool                           shift and go to state 46
-    lista                          shift and go to state 47
+    contenido                      shift and go to state 46
+    items                          shift and go to state 47
+    string                         shift and go to state 48
+    number                         shift and go to state 49
+    float                          shift and go to state 50
+    bool                           shift and go to state 51
+    lista                          shift and go to state 52
 
 state 16
 
-    (22) var -> text . EQUALS
+    (31) var -> text . EQUALS
 
-    EQUALS          shift and go to state 48
-=======
-    (7) assign -> var string .
-
-    $end            reduce using rule 7 (assign -> var string .)
-
-
-state 16
-
-    (8) assign -> var float .
-
-    $end            reduce using rule 8 (assign -> var float .)
->>>>>>> 83f434315265db7e70f8bb9d6f3aaf30ac460c3c
+    EQUALS          shift and go to state 53
 
 
 state 17
 
-<<<<<<< HEAD
-    (23) text -> NAME .
+    (32) text -> NAME .
 
-    EQUALS          reduce using rule 23 (text -> NAME .)
-    COMILLA         reduce using rule 23 (text -> NAME .)
-=======
-    (9) assign -> var number .
-
-    $end            reduce using rule 9 (assign -> var number .)
->>>>>>> 83f434315265db7e70f8bb9d6f3aaf30ac460c3c
+    EQUALS          reduce using rule 32 (text -> NAME .)
+    COMILLA         reduce using rule 32 (text -> NAME .)
 
 
 state 18
 
-<<<<<<< HEAD
     (8) assign -> var lista .
 
     $end            reduce using rule 8 (assign -> var lista .)
-=======
-    (10) assign -> var bool .
-
-    $end            reduce using rule 10 (assign -> var bool .)
->>>>>>> 83f434315265db7e70f8bb9d6f3aaf30ac460c3c
 
 
 state 19
 
-<<<<<<< HEAD
     (9) assign -> var string .
 
     $end            reduce using rule 9 (assign -> var string .)
-=======
-    (11) assign -> var diccionario .
-
-    $end            reduce using rule 11 (assign -> var diccionario .)
->>>>>>> 83f434315265db7e70f8bb9d6f3aaf30ac460c3c
 
 
 state 20
 
-<<<<<<< HEAD
     (10) assign -> var float .
 
     $end            reduce using rule 10 (assign -> var float .)
-=======
-    (18) lista -> LCORCH . contenido RCORCH
-    (19) contenido -> . items
-    (20) contenido -> . items COMA contenido
-    (21) items -> . string
-    (22) items -> . number
-    (23) items -> . float
-    (24) items -> . bool
-    (25) items -> . lista
-    (29) string -> . COMILLA text COMILLA
-    (33) number -> . NUMBER
-    (32) float -> . FLOAT
-    (30) bool -> . TRUE
-    (31) bool -> . FALSE
-    (18) lista -> . LCORCH contenido RCORCH
 
-    COMILLA         shift and go to state 21
-    NUMBER          shift and go to state 23
-    FLOAT           shift and go to state 22
-    TRUE            shift and go to state 24
-    FALSE           shift and go to state 25
-    LCORCH          shift and go to state 20
->>>>>>> 83f434315265db7e70f8bb9d6f3aaf30ac460c3c
-
-    contenido                      shift and go to state 38
-    items                          shift and go to state 39
-    string                         shift and go to state 40
-    number                         shift and go to state 41
-    float                          shift and go to state 42
-    bool                           shift and go to state 43
-    lista                          shift and go to state 44
 
 state 21
 
-<<<<<<< HEAD
     (11) assign -> var number .
 
     $end            reduce using rule 11 (assign -> var number .)
@@ -689,1109 +424,817 @@ state 22
     (12) assign -> var bool .
 
     $end            reduce using rule 12 (assign -> var bool .)
-=======
-    (29) string -> COMILLA . text COMILLA
-    (28) text -> . NAME
-
-    NAME            shift and go to state 13
-
-    text                           shift and go to state 45
-
-state 22
-
-    (32) float -> FLOAT .
-
-    $end            reduce using rule 32 (float -> FLOAT .)
-    IN              reduce using rule 32 (float -> FLOAT .)
-    COMA            reduce using rule 32 (float -> FLOAT .)
-    RCORCH          reduce using rule 32 (float -> FLOAT .)
-    TWOPOINT        reduce using rule 32 (float -> FLOAT .)
-    DLLAVE          reduce using rule 32 (float -> FLOAT .)
->>>>>>> 83f434315265db7e70f8bb9d6f3aaf30ac460c3c
 
 
 state 23
 
-<<<<<<< HEAD
-    (24) string -> COMILLA . text COMILLA
-    (23) text -> . NAME
+    (13) assign -> var diccionario .
 
-    NAME            shift and go to state 17
-=======
-    (33) number -> NUMBER .
+    $end            reduce using rule 13 (assign -> var diccionario .)
 
-    $end            reduce using rule 33 (number -> NUMBER .)
-    IN              reduce using rule 33 (number -> NUMBER .)
-    COMA            reduce using rule 33 (number -> NUMBER .)
-    RCORCH          reduce using rule 33 (number -> NUMBER .)
-    TWOPOINT        reduce using rule 33 (number -> NUMBER .)
-    DLLAVE          reduce using rule 33 (number -> NUMBER .)
->>>>>>> 83f434315265db7e70f8bb9d6f3aaf30ac460c3c
-
-    text                           shift and go to state 49
 
 state 24
 
-<<<<<<< HEAD
-    (27) float -> FLOAT .
+    (14) assign -> var input .
 
-    $end            reduce using rule 27 (float -> FLOAT .)
-    IN              reduce using rule 27 (float -> FLOAT .)
-    COMA            reduce using rule 27 (float -> FLOAT .)
-    RCORCH          reduce using rule 27 (float -> FLOAT .)
-=======
-    (30) bool -> TRUE .
-
-    $end            reduce using rule 30 (bool -> TRUE .)
-    IN              reduce using rule 30 (bool -> TRUE .)
-    COMA            reduce using rule 30 (bool -> TRUE .)
-    RCORCH          reduce using rule 30 (bool -> TRUE .)
-    DLLAVE          reduce using rule 30 (bool -> TRUE .)
->>>>>>> 83f434315265db7e70f8bb9d6f3aaf30ac460c3c
+    $end            reduce using rule 14 (assign -> var input .)
 
 
 state 25
 
-<<<<<<< HEAD
-    (28) number -> NUMBER .
+    (33) string -> COMILLA . text COMILLA
+    (32) text -> . NAME
 
-    $end            reduce using rule 28 (number -> NUMBER .)
-    IN              reduce using rule 28 (number -> NUMBER .)
-    COMA            reduce using rule 28 (number -> NUMBER .)
-    RCORCH          reduce using rule 28 (number -> NUMBER .)
-=======
-    (31) bool -> FALSE .
+    NAME            shift and go to state 17
 
-    $end            reduce using rule 31 (bool -> FALSE .)
-    IN              reduce using rule 31 (bool -> FALSE .)
-    COMA            reduce using rule 31 (bool -> FALSE .)
-    RCORCH          reduce using rule 31 (bool -> FALSE .)
-    DLLAVE          reduce using rule 31 (bool -> FALSE .)
->>>>>>> 83f434315265db7e70f8bb9d6f3aaf30ac460c3c
-
+    text                           shift and go to state 54
 
 state 26
 
-<<<<<<< HEAD
-    (25) bool -> TRUE .
+    (36) float -> FLOAT .
 
-    $end            reduce using rule 25 (bool -> TRUE .)
-    IN              reduce using rule 25 (bool -> TRUE .)
-    COMA            reduce using rule 25 (bool -> TRUE .)
-    RCORCH          reduce using rule 25 (bool -> TRUE .)
+    $end            reduce using rule 36 (float -> FLOAT .)
+    IN              reduce using rule 36 (float -> FLOAT .)
+    COMA            reduce using rule 36 (float -> FLOAT .)
+    RCORCH          reduce using rule 36 (float -> FLOAT .)
+    TWOPOINT        reduce using rule 36 (float -> FLOAT .)
+    DLLAVE          reduce using rule 36 (float -> FLOAT .)
 
-
-state 27
-
-    (26) bool -> FALSE .
-=======
-    (12) diccionario -> ILLAVE . info DLLAVE
-    (13) info -> . keys TWOPOINT items
-    (14) info -> . keys TWOPOINT items COMA info
-    (15) keys -> . string
-    (16) keys -> . number
-    (17) keys -> . float
-    (29) string -> . COMILLA text COMILLA
-    (33) number -> . NUMBER
-    (32) float -> . FLOAT
-
-    COMILLA         shift and go to state 21
-    NUMBER          shift and go to state 23
-    FLOAT           shift and go to state 22
-
-    info                           shift and go to state 46
-    keys                           shift and go to state 47
-    string                         shift and go to state 48
-    number                         shift and go to state 49
-    float                          shift and go to state 50
 
 state 27
 
-    (26) print -> PRINT LPAREN . string RPAREN
-    (29) string -> . COMILLA text COMILLA
+    (37) number -> NUMBER .
 
-    COMILLA         shift and go to state 21
+    $end            reduce using rule 37 (number -> NUMBER .)
+    IN              reduce using rule 37 (number -> NUMBER .)
+    COMA            reduce using rule 37 (number -> NUMBER .)
+    RCORCH          reduce using rule 37 (number -> NUMBER .)
+    TWOPOINT        reduce using rule 37 (number -> NUMBER .)
+    DLLAVE          reduce using rule 37 (number -> NUMBER .)
 
-    string                         shift and go to state 51
->>>>>>> 83f434315265db7e70f8bb9d6f3aaf30ac460c3c
-
-    $end            reduce using rule 26 (bool -> FALSE .)
-    IN              reduce using rule 26 (bool -> FALSE .)
-    COMA            reduce using rule 26 (bool -> FALSE .)
-    RCORCH          reduce using rule 26 (bool -> FALSE .)
-
-<<<<<<< HEAD
 
 state 28
 
-    (21) print -> PRINT LPAREN . string RPAREN
-    (24) string -> . COMILLA text COMILLA
-=======
-    (35) if -> IF LPAREN . condicion RPAREN TWOPOINT
-    (40) condicion -> . string IN string
-    (41) condicion -> . string IN lista
-    (42) condicion -> . number IN string
-    (43) condicion -> . bool IN lista
-    (44) condicion -> . float IN lista
-    (29) string -> . COMILLA text COMILLA
-    (33) number -> . NUMBER
-    (30) bool -> . TRUE
-    (31) bool -> . FALSE
-    (32) float -> . FLOAT
+    (34) bool -> TRUE .
 
-    COMILLA         shift and go to state 21
-    NUMBER          shift and go to state 23
-    TRUE            shift and go to state 24
-    FALSE           shift and go to state 25
-    FLOAT           shift and go to state 22
+    $end            reduce using rule 34 (bool -> TRUE .)
+    IN              reduce using rule 34 (bool -> TRUE .)
+    COMA            reduce using rule 34 (bool -> TRUE .)
+    RCORCH          reduce using rule 34 (bool -> TRUE .)
+    DLLAVE          reduce using rule 34 (bool -> TRUE .)
 
-    condicion                      shift and go to state 52
-    string                         shift and go to state 30
-    number                         shift and go to state 31
-    bool                           shift and go to state 32
-    float                          shift and go to state 33
->>>>>>> 83f434315265db7e70f8bb9d6f3aaf30ac460c3c
-
-    COMILLA         shift and go to state 23
-
-<<<<<<< HEAD
-    string                         shift and go to state 50
 
 state 29
-=======
-    (36) if -> IF condicion . TWOPOINT
 
-    TWOPOINT        shift and go to state 53
->>>>>>> 83f434315265db7e70f8bb9d6f3aaf30ac460c3c
+    (35) bool -> FALSE .
 
-    (34) if -> IF LPAREN . condicion RPAREN TWOPOINT
-    (39) condicion -> . string IN string
-    (40) condicion -> . string IN lista
-    (41) condicion -> . number IN string
-    (42) condicion -> . bool IN lista
-    (43) condicion -> . float IN lista
-    (24) string -> . COMILLA text COMILLA
-    (28) number -> . NUMBER
-    (25) bool -> . TRUE
-    (26) bool -> . FALSE
-    (27) float -> . FLOAT
+    $end            reduce using rule 35 (bool -> FALSE .)
+    IN              reduce using rule 35 (bool -> FALSE .)
+    COMA            reduce using rule 35 (bool -> FALSE .)
+    RCORCH          reduce using rule 35 (bool -> FALSE .)
+    DLLAVE          reduce using rule 35 (bool -> FALSE .)
 
-    COMILLA         shift and go to state 23
-    NUMBER          shift and go to state 25
-    TRUE            shift and go to state 26
-    FALSE           shift and go to state 27
-    FLOAT           shift and go to state 24
-
-    condicion                      shift and go to state 51
-    string                         shift and go to state 31
-    number                         shift and go to state 32
-    bool                           shift and go to state 33
-    float                          shift and go to state 34
 
 state 30
 
-<<<<<<< HEAD
-    (35) if -> IF condicion . TWOPOINT
+    (16) diccionario -> ILLAVE . info DLLAVE
+    (17) info -> . keys TWOPOINT items
+    (18) info -> . keys TWOPOINT items COMA info
+    (19) keys -> . string
+    (20) keys -> . number
+    (21) keys -> . float
+    (33) string -> . COMILLA text COMILLA
+    (37) number -> . NUMBER
+    (36) float -> . FLOAT
 
-    TWOPOINT        shift and go to state 52
-=======
-    (40) condicion -> string . IN string
-    (41) condicion -> string . IN lista
+    COMILLA         shift and go to state 25
+    NUMBER          shift and go to state 27
+    FLOAT           shift and go to state 26
 
-    IN              shift and go to state 54
->>>>>>> 83f434315265db7e70f8bb9d6f3aaf30ac460c3c
-
+    info                           shift and go to state 55
+    keys                           shift and go to state 56
+    string                         shift and go to state 57
+    number                         shift and go to state 58
+    float                          shift and go to state 59
 
 state 31
 
-<<<<<<< HEAD
-    (39) condicion -> string . IN string
-    (40) condicion -> string . IN lista
+    (15) input -> INPUT . LPAREN string RPAREN
 
-    IN              shift and go to state 53
-=======
-    (42) condicion -> number . IN string
-
-    IN              shift and go to state 55
->>>>>>> 83f434315265db7e70f8bb9d6f3aaf30ac460c3c
+    LPAREN          shift and go to state 60
 
 
 state 32
 
-<<<<<<< HEAD
-    (41) condicion -> number . IN string
+    (30) print -> PRINT LPAREN . string RPAREN
+    (33) string -> . COMILLA text COMILLA
 
-    IN              shift and go to state 54
-=======
-    (43) condicion -> bool . IN lista
+    COMILLA         shift and go to state 25
 
-    IN              shift and go to state 56
->>>>>>> 83f434315265db7e70f8bb9d6f3aaf30ac460c3c
-
+    string                         shift and go to state 61
 
 state 33
 
-<<<<<<< HEAD
-    (42) condicion -> bool . IN lista
-=======
-    (44) condicion -> float . IN lista
+    (43) if -> IF LPAREN . condicion RPAREN TWOPOINT
+    (48) condicion -> . string IN string
+    (49) condicion -> . NAME IN lista
+    (50) condicion -> . NAME IN string
+    (51) condicion -> . string IN lista
+    (52) condicion -> . number IN string
+    (53) condicion -> . bool IN lista
+    (54) condicion -> . float IN lista
+    (55) condicion -> . NAME IN NAME
+    (33) string -> . COMILLA text COMILLA
+    (37) number -> . NUMBER
+    (34) bool -> . TRUE
+    (35) bool -> . FALSE
+    (36) float -> . FLOAT
 
-    IN              shift and go to state 57
+    NAME            shift and go to state 36
+    COMILLA         shift and go to state 25
+    NUMBER          shift and go to state 27
+    TRUE            shift and go to state 28
+    FALSE           shift and go to state 29
+    FLOAT           shift and go to state 26
 
->>>>>>> 83f434315265db7e70f8bb9d6f3aaf30ac460c3c
-
-    IN              shift and go to state 55
-
-<<<<<<< HEAD
+    condicion                      shift and go to state 62
+    string                         shift and go to state 35
+    number                         shift and go to state 37
+    bool                           shift and go to state 38
+    float                          shift and go to state 39
 
 state 34
 
-    (43) condicion -> float . IN lista
-=======
-    (37) elif -> ELIF LPAREN . condicion RPAREN TWOPOINT
-    (40) condicion -> . string IN string
-    (41) condicion -> . string IN lista
-    (42) condicion -> . number IN string
-    (43) condicion -> . bool IN lista
-    (44) condicion -> . float IN lista
-    (29) string -> . COMILLA text COMILLA
-    (33) number -> . NUMBER
-    (30) bool -> . TRUE
-    (31) bool -> . FALSE
-    (32) float -> . FLOAT
+    (44) if -> IF condicion . TWOPOINT
 
-    COMILLA         shift and go to state 21
-    NUMBER          shift and go to state 23
-    TRUE            shift and go to state 24
-    FALSE           shift and go to state 25
-    FLOAT           shift and go to state 22
+    TWOPOINT        shift and go to state 63
 
-    condicion                      shift and go to state 58
-    string                         shift and go to state 30
-    number                         shift and go to state 31
-    bool                           shift and go to state 32
-    float                          shift and go to state 33
->>>>>>> 83f434315265db7e70f8bb9d6f3aaf30ac460c3c
-
-    IN              shift and go to state 56
-
-<<<<<<< HEAD
 
 state 35
-=======
-    (38) elif -> ELIF condicion . TWOPOINT
 
-    TWOPOINT        shift and go to state 59
->>>>>>> 83f434315265db7e70f8bb9d6f3aaf30ac460c3c
+    (48) condicion -> string . IN string
+    (51) condicion -> string . IN lista
 
-    (36) elif -> ELIF LPAREN . condicion RPAREN TWOPOINT
-    (39) condicion -> . string IN string
-    (40) condicion -> . string IN lista
-    (41) condicion -> . number IN string
-    (42) condicion -> . bool IN lista
-    (43) condicion -> . float IN lista
-    (24) string -> . COMILLA text COMILLA
-    (28) number -> . NUMBER
-    (25) bool -> . TRUE
-    (26) bool -> . FALSE
-    (27) float -> . FLOAT
+    IN              shift and go to state 64
 
-    COMILLA         shift and go to state 23
-    NUMBER          shift and go to state 25
-    TRUE            shift and go to state 26
-    FALSE           shift and go to state 27
-    FLOAT           shift and go to state 24
-
-    condicion                      shift and go to state 57
-    string                         shift and go to state 31
-    number                         shift and go to state 32
-    bool                           shift and go to state 33
-    float                          shift and go to state 34
 
 state 36
 
-<<<<<<< HEAD
-    (37) elif -> ELIF condicion . TWOPOINT
+    (49) condicion -> NAME . IN lista
+    (50) condicion -> NAME . IN string
+    (55) condicion -> NAME . IN NAME
 
-    TWOPOINT        shift and go to state 58
-=======
-    (39) else -> ELSE TWOPOINT .
-
-    $end            reduce using rule 39 (else -> ELSE TWOPOINT .)
->>>>>>> 83f434315265db7e70f8bb9d6f3aaf30ac460c3c
+    IN              shift and go to state 65
 
 
 state 37
 
-<<<<<<< HEAD
-    (38) else -> ELSE TWOPOINT .
+    (52) condicion -> number . IN string
 
-    $end            reduce using rule 38 (else -> ELSE TWOPOINT .)
-=======
-    (27) var -> text EQUALS .
-
-    LCORCH          reduce using rule 27 (var -> text EQUALS .)
-    COMILLA         reduce using rule 27 (var -> text EQUALS .)
-    FLOAT           reduce using rule 27 (var -> text EQUALS .)
-    NUMBER          reduce using rule 27 (var -> text EQUALS .)
-    TRUE            reduce using rule 27 (var -> text EQUALS .)
-    FALSE           reduce using rule 27 (var -> text EQUALS .)
-    ILLAVE          reduce using rule 27 (var -> text EQUALS .)
->>>>>>> 83f434315265db7e70f8bb9d6f3aaf30ac460c3c
+    IN              shift and go to state 66
 
 
 state 38
 
-<<<<<<< HEAD
-    (30) for -> FOR LPAREN . condicionfor RPAREN TWOPOINT
-    (32) condicionfor -> . string COMA string IN funcionitems
-    (24) string -> . COMILLA text COMILLA
+    (53) condicion -> bool . IN lista
 
-    COMILLA         shift and go to state 23
-=======
-    (18) lista -> LCORCH contenido . RCORCH
+    IN              shift and go to state 67
 
-    RCORCH          shift and go to state 60
->>>>>>> 83f434315265db7e70f8bb9d6f3aaf30ac460c3c
-
-    condicionfor                   shift and go to state 59
-    string                         shift and go to state 40
 
 state 39
 
-<<<<<<< HEAD
-    (31) for -> FOR condicionfor . TWOPOINT
+    (54) condicion -> float . IN lista
 
-    TWOPOINT        shift and go to state 60
-=======
-    (19) contenido -> items .
-    (20) contenido -> items . COMA contenido
-
-    RCORCH          reduce using rule 19 (contenido -> items .)
-    COMA            shift and go to state 61
->>>>>>> 83f434315265db7e70f8bb9d6f3aaf30ac460c3c
+    IN              shift and go to state 68
 
 
 state 40
 
-<<<<<<< HEAD
-    (32) condicionfor -> string . COMA string IN funcionitems
+    (45) elif -> ELIF LPAREN . condicion RPAREN TWOPOINT
+    (48) condicion -> . string IN string
+    (49) condicion -> . NAME IN lista
+    (50) condicion -> . NAME IN string
+    (51) condicion -> . string IN lista
+    (52) condicion -> . number IN string
+    (53) condicion -> . bool IN lista
+    (54) condicion -> . float IN lista
+    (55) condicion -> . NAME IN NAME
+    (33) string -> . COMILLA text COMILLA
+    (37) number -> . NUMBER
+    (34) bool -> . TRUE
+    (35) bool -> . FALSE
+    (36) float -> . FLOAT
 
-    COMA            shift and go to state 61
-=======
-    (21) items -> string .
+    NAME            shift and go to state 36
+    COMILLA         shift and go to state 25
+    NUMBER          shift and go to state 27
+    TRUE            shift and go to state 28
+    FALSE           shift and go to state 29
+    FLOAT           shift and go to state 26
 
-    COMA            reduce using rule 21 (items -> string .)
-    RCORCH          reduce using rule 21 (items -> string .)
-    DLLAVE          reduce using rule 21 (items -> string .)
->>>>>>> 83f434315265db7e70f8bb9d6f3aaf30ac460c3c
-
+    condicion                      shift and go to state 69
+    string                         shift and go to state 35
+    number                         shift and go to state 37
+    bool                           shift and go to state 38
+    float                          shift and go to state 39
 
 state 41
 
-<<<<<<< HEAD
-    (13) lista -> LCORCH contenido . RCORCH
+    (46) elif -> ELIF condicion . TWOPOINT
 
-    RCORCH          shift and go to state 62
-=======
-    (22) items -> number .
-
-    COMA            reduce using rule 22 (items -> number .)
-    RCORCH          reduce using rule 22 (items -> number .)
-    DLLAVE          reduce using rule 22 (items -> number .)
->>>>>>> 83f434315265db7e70f8bb9d6f3aaf30ac460c3c
+    TWOPOINT        shift and go to state 70
 
 
 state 42
 
-<<<<<<< HEAD
-    (14) contenido -> items .
-    (15) contenido -> items . COMA contenido
+    (47) else -> ELSE TWOPOINT .
 
-    RCORCH          reduce using rule 14 (contenido -> items .)
-    COMA            shift and go to state 63
-=======
-    (23) items -> float .
-
-    COMA            reduce using rule 23 (items -> float .)
-    RCORCH          reduce using rule 23 (items -> float .)
-    DLLAVE          reduce using rule 23 (items -> float .)
->>>>>>> 83f434315265db7e70f8bb9d6f3aaf30ac460c3c
+    $end            reduce using rule 47 (else -> ELSE TWOPOINT .)
 
 
 state 43
 
-<<<<<<< HEAD
-    (16) items -> string .
+    (39) for -> FOR LPAREN . condicionfor RPAREN TWOPOINT
+    (41) condicionfor -> . NAME COMA NAME IN funcionitems
 
-    COMA            reduce using rule 16 (items -> string .)
-    RCORCH          reduce using rule 16 (items -> string .)
-=======
-    (24) items -> bool .
+    NAME            shift and go to state 45
 
-    COMA            reduce using rule 24 (items -> bool .)
-    RCORCH          reduce using rule 24 (items -> bool .)
-    DLLAVE          reduce using rule 24 (items -> bool .)
->>>>>>> 83f434315265db7e70f8bb9d6f3aaf30ac460c3c
-
+    condicionfor                   shift and go to state 71
 
 state 44
 
-<<<<<<< HEAD
-    (17) items -> number .
+    (40) for -> FOR condicionfor . TWOPOINT
 
-    COMA            reduce using rule 17 (items -> number .)
-    RCORCH          reduce using rule 17 (items -> number .)
-=======
-    (25) items -> lista .
-
-    COMA            reduce using rule 25 (items -> lista .)
-    RCORCH          reduce using rule 25 (items -> lista .)
-    DLLAVE          reduce using rule 25 (items -> lista .)
->>>>>>> 83f434315265db7e70f8bb9d6f3aaf30ac460c3c
+    TWOPOINT        shift and go to state 72
 
 
 state 45
 
-<<<<<<< HEAD
-    (18) items -> float .
+    (41) condicionfor -> NAME . COMA NAME IN funcionitems
 
-    COMA            reduce using rule 18 (items -> float .)
-    RCORCH          reduce using rule 18 (items -> float .)
-=======
-    (29) string -> COMILLA text . COMILLA
-
-    COMILLA         shift and go to state 62
->>>>>>> 83f434315265db7e70f8bb9d6f3aaf30ac460c3c
+    COMA            shift and go to state 73
 
 
 state 46
 
-<<<<<<< HEAD
-    (19) items -> bool .
+    (22) lista -> LCORCH contenido . RCORCH
 
-    COMA            reduce using rule 19 (items -> bool .)
-    RCORCH          reduce using rule 19 (items -> bool .)
-=======
-    (12) diccionario -> ILLAVE info . DLLAVE
-
-    DLLAVE          shift and go to state 63
->>>>>>> 83f434315265db7e70f8bb9d6f3aaf30ac460c3c
+    RCORCH          shift and go to state 74
 
 
 state 47
 
-<<<<<<< HEAD
-    (20) items -> lista .
+    (23) contenido -> items .
+    (24) contenido -> items . COMA contenido
 
-    COMA            reduce using rule 20 (items -> lista .)
-    RCORCH          reduce using rule 20 (items -> lista .)
-=======
-    (13) info -> keys . TWOPOINT items
-    (14) info -> keys . TWOPOINT items COMA info
-
-    TWOPOINT        shift and go to state 64
->>>>>>> 83f434315265db7e70f8bb9d6f3aaf30ac460c3c
+    RCORCH          reduce using rule 23 (contenido -> items .)
+    COMA            shift and go to state 75
 
 
 state 48
 
-<<<<<<< HEAD
-    (22) var -> text EQUALS .
+    (25) items -> string .
 
-    LCORCH          reduce using rule 22 (var -> text EQUALS .)
-    COMILLA         reduce using rule 22 (var -> text EQUALS .)
-    FLOAT           reduce using rule 22 (var -> text EQUALS .)
-    NUMBER          reduce using rule 22 (var -> text EQUALS .)
-    TRUE            reduce using rule 22 (var -> text EQUALS .)
-    FALSE           reduce using rule 22 (var -> text EQUALS .)
-=======
-    (15) keys -> string .
-
-    TWOPOINT        reduce using rule 15 (keys -> string .)
->>>>>>> 83f434315265db7e70f8bb9d6f3aaf30ac460c3c
+    COMA            reduce using rule 25 (items -> string .)
+    RCORCH          reduce using rule 25 (items -> string .)
+    DLLAVE          reduce using rule 25 (items -> string .)
 
 
 state 49
 
-<<<<<<< HEAD
-    (24) string -> COMILLA text . COMILLA
+    (26) items -> number .
 
-    COMILLA         shift and go to state 64
-=======
-    (16) keys -> number .
-
-    TWOPOINT        reduce using rule 16 (keys -> number .)
->>>>>>> 83f434315265db7e70f8bb9d6f3aaf30ac460c3c
+    COMA            reduce using rule 26 (items -> number .)
+    RCORCH          reduce using rule 26 (items -> number .)
+    DLLAVE          reduce using rule 26 (items -> number .)
 
 
 state 50
 
-<<<<<<< HEAD
-    (21) print -> PRINT LPAREN string . RPAREN
+    (27) items -> float .
 
-    RPAREN          shift and go to state 65
-=======
-    (17) keys -> float .
-
-    TWOPOINT        reduce using rule 17 (keys -> float .)
->>>>>>> 83f434315265db7e70f8bb9d6f3aaf30ac460c3c
+    COMA            reduce using rule 27 (items -> float .)
+    RCORCH          reduce using rule 27 (items -> float .)
+    DLLAVE          reduce using rule 27 (items -> float .)
 
 
 state 51
 
-<<<<<<< HEAD
-    (34) if -> IF LPAREN condicion . RPAREN TWOPOINT
+    (28) items -> bool .
 
-    RPAREN          shift and go to state 66
-=======
-    (26) print -> PRINT LPAREN string . RPAREN
-
-    RPAREN          shift and go to state 65
->>>>>>> 83f434315265db7e70f8bb9d6f3aaf30ac460c3c
+    COMA            reduce using rule 28 (items -> bool .)
+    RCORCH          reduce using rule 28 (items -> bool .)
+    DLLAVE          reduce using rule 28 (items -> bool .)
 
 
 state 52
 
-<<<<<<< HEAD
-    (35) if -> IF condicion TWOPOINT .
+    (29) items -> lista .
 
-    $end            reduce using rule 35 (if -> IF condicion TWOPOINT .)
-=======
-    (35) if -> IF LPAREN condicion . RPAREN TWOPOINT
-
-    RPAREN          shift and go to state 66
->>>>>>> 83f434315265db7e70f8bb9d6f3aaf30ac460c3c
+    COMA            reduce using rule 29 (items -> lista .)
+    RCORCH          reduce using rule 29 (items -> lista .)
+    DLLAVE          reduce using rule 29 (items -> lista .)
 
 
 state 53
 
-<<<<<<< HEAD
-    (39) condicion -> string IN . string
-    (40) condicion -> string IN . lista
-    (24) string -> . COMILLA text COMILLA
-    (13) lista -> . LCORCH contenido RCORCH
+    (31) var -> text EQUALS .
 
-    COMILLA         shift and go to state 23
-    LCORCH          shift and go to state 15
-=======
-    (36) if -> IF condicion TWOPOINT .
+    LCORCH          reduce using rule 31 (var -> text EQUALS .)
+    COMILLA         reduce using rule 31 (var -> text EQUALS .)
+    FLOAT           reduce using rule 31 (var -> text EQUALS .)
+    NUMBER          reduce using rule 31 (var -> text EQUALS .)
+    TRUE            reduce using rule 31 (var -> text EQUALS .)
+    FALSE           reduce using rule 31 (var -> text EQUALS .)
+    ILLAVE          reduce using rule 31 (var -> text EQUALS .)
+    INPUT           reduce using rule 31 (var -> text EQUALS .)
 
-    $end            reduce using rule 36 (if -> IF condicion TWOPOINT .)
->>>>>>> 83f434315265db7e70f8bb9d6f3aaf30ac460c3c
-
-    string                         shift and go to state 67
-    lista                          shift and go to state 68
 
 state 54
 
-<<<<<<< HEAD
-    (41) condicion -> number IN . string
-    (24) string -> . COMILLA text COMILLA
+    (33) string -> COMILLA text . COMILLA
 
-    COMILLA         shift and go to state 23
+    COMILLA         shift and go to state 76
 
-    string                         shift and go to state 69
 
 state 55
 
-    (42) condicion -> bool IN . lista
-    (13) lista -> . LCORCH contenido RCORCH
+    (16) diccionario -> ILLAVE info . DLLAVE
 
-    LCORCH          shift and go to state 15
+    DLLAVE          shift and go to state 77
 
-    lista                          shift and go to state 70
 
 state 56
 
-    (43) condicion -> float IN . lista
-    (13) lista -> . LCORCH contenido RCORCH
+    (17) info -> keys . TWOPOINT items
+    (18) info -> keys . TWOPOINT items COMA info
 
-    LCORCH          shift and go to state 15
+    TWOPOINT        shift and go to state 78
 
-    lista                          shift and go to state 71
-
-state 57
-
-    (36) elif -> ELIF LPAREN condicion . RPAREN TWOPOINT
-
-    RPAREN          shift and go to state 72
-=======
-    (40) condicion -> string IN . string
-    (41) condicion -> string IN . lista
-    (29) string -> . COMILLA text COMILLA
-    (18) lista -> . LCORCH contenido RCORCH
-
-    COMILLA         shift and go to state 21
-    LCORCH          shift and go to state 20
-
-    string                         shift and go to state 67
-    lista                          shift and go to state 68
-
-state 55
-
-    (42) condicion -> number IN . string
-    (29) string -> . COMILLA text COMILLA
-
-    COMILLA         shift and go to state 21
-
-    string                         shift and go to state 69
-
-state 56
-
-    (43) condicion -> bool IN . lista
-    (18) lista -> . LCORCH contenido RCORCH
-
-    LCORCH          shift and go to state 20
-
-    lista                          shift and go to state 70
 
 state 57
 
-    (44) condicion -> float IN . lista
-    (18) lista -> . LCORCH contenido RCORCH
+    (19) keys -> string .
 
-    LCORCH          shift and go to state 20
->>>>>>> 83f434315265db7e70f8bb9d6f3aaf30ac460c3c
+    TWOPOINT        reduce using rule 19 (keys -> string .)
 
-    lista                          shift and go to state 71
 
 state 58
 
-<<<<<<< HEAD
-    (37) elif -> ELIF condicion TWOPOINT .
+    (20) keys -> number .
 
-    $end            reduce using rule 37 (elif -> ELIF condicion TWOPOINT .)
-=======
-    (37) elif -> ELIF LPAREN condicion . RPAREN TWOPOINT
-
-    RPAREN          shift and go to state 72
->>>>>>> 83f434315265db7e70f8bb9d6f3aaf30ac460c3c
+    TWOPOINT        reduce using rule 20 (keys -> number .)
 
 
 state 59
 
-<<<<<<< HEAD
-    (30) for -> FOR LPAREN condicionfor . RPAREN TWOPOINT
+    (21) keys -> float .
 
-    RPAREN          shift and go to state 73
-=======
-    (38) elif -> ELIF condicion TWOPOINT .
-
-    $end            reduce using rule 38 (elif -> ELIF condicion TWOPOINT .)
->>>>>>> 83f434315265db7e70f8bb9d6f3aaf30ac460c3c
+    TWOPOINT        reduce using rule 21 (keys -> float .)
 
 
 state 60
 
-<<<<<<< HEAD
-    (31) for -> FOR condicionfor TWOPOINT .
+    (15) input -> INPUT LPAREN . string RPAREN
+    (33) string -> . COMILLA text COMILLA
 
-    $end            reduce using rule 31 (for -> FOR condicionfor TWOPOINT .)
-=======
-    (18) lista -> LCORCH contenido RCORCH .
+    COMILLA         shift and go to state 25
 
-    $end            reduce using rule 18 (lista -> LCORCH contenido RCORCH .)
-    COMA            reduce using rule 18 (lista -> LCORCH contenido RCORCH .)
-    RCORCH          reduce using rule 18 (lista -> LCORCH contenido RCORCH .)
-    TWOPOINT        reduce using rule 18 (lista -> LCORCH contenido RCORCH .)
-    RPAREN          reduce using rule 18 (lista -> LCORCH contenido RCORCH .)
-    DLLAVE          reduce using rule 18 (lista -> LCORCH contenido RCORCH .)
->>>>>>> 83f434315265db7e70f8bb9d6f3aaf30ac460c3c
-
+    string                         shift and go to state 79
 
 state 61
 
-<<<<<<< HEAD
-    (32) condicionfor -> string COMA . string IN funcionitems
-    (24) string -> . COMILLA text COMILLA
+    (30) print -> PRINT LPAREN string . RPAREN
 
-    COMILLA         shift and go to state 23
+    RPAREN          shift and go to state 80
 
-    string                         shift and go to state 74
 
 state 62
 
-    (13) lista -> LCORCH contenido RCORCH .
+    (43) if -> IF LPAREN condicion . RPAREN TWOPOINT
 
-    $end            reduce using rule 13 (lista -> LCORCH contenido RCORCH .)
-    COMA            reduce using rule 13 (lista -> LCORCH contenido RCORCH .)
-    RCORCH          reduce using rule 13 (lista -> LCORCH contenido RCORCH .)
-    TWOPOINT        reduce using rule 13 (lista -> LCORCH contenido RCORCH .)
-    RPAREN          reduce using rule 13 (lista -> LCORCH contenido RCORCH .)
-=======
-    (20) contenido -> items COMA . contenido
-    (19) contenido -> . items
-    (20) contenido -> . items COMA contenido
-    (21) items -> . string
-    (22) items -> . number
-    (23) items -> . float
-    (24) items -> . bool
-    (25) items -> . lista
-    (29) string -> . COMILLA text COMILLA
-    (33) number -> . NUMBER
-    (32) float -> . FLOAT
-    (30) bool -> . TRUE
-    (31) bool -> . FALSE
-    (18) lista -> . LCORCH contenido RCORCH
-
-    COMILLA         shift and go to state 21
-    NUMBER          shift and go to state 23
-    FLOAT           shift and go to state 22
-    TRUE            shift and go to state 24
-    FALSE           shift and go to state 25
-    LCORCH          shift and go to state 20
-
-    items                          shift and go to state 39
-    contenido                      shift and go to state 73
-    string                         shift and go to state 40
-    number                         shift and go to state 41
-    float                          shift and go to state 42
-    bool                           shift and go to state 43
-    lista                          shift and go to state 44
-
-state 62
-
-    (29) string -> COMILLA text COMILLA .
-
-    $end            reduce using rule 29 (string -> COMILLA text COMILLA .)
-    IN              reduce using rule 29 (string -> COMILLA text COMILLA .)
-    COMA            reduce using rule 29 (string -> COMILLA text COMILLA .)
-    RCORCH          reduce using rule 29 (string -> COMILLA text COMILLA .)
-    TWOPOINT        reduce using rule 29 (string -> COMILLA text COMILLA .)
-    RPAREN          reduce using rule 29 (string -> COMILLA text COMILLA .)
-    DLLAVE          reduce using rule 29 (string -> COMILLA text COMILLA .)
->>>>>>> 83f434315265db7e70f8bb9d6f3aaf30ac460c3c
+    RPAREN          shift and go to state 81
 
 
 state 63
 
-<<<<<<< HEAD
-    (15) contenido -> items COMA . contenido
-    (14) contenido -> . items
-    (15) contenido -> . items COMA contenido
-    (16) items -> . string
-    (17) items -> . number
-    (18) items -> . float
-    (19) items -> . bool
-    (20) items -> . lista
-    (24) string -> . COMILLA text COMILLA
-    (28) number -> . NUMBER
-    (27) float -> . FLOAT
-    (25) bool -> . TRUE
-    (26) bool -> . FALSE
-    (13) lista -> . LCORCH contenido RCORCH
+    (44) if -> IF condicion TWOPOINT .
 
-    COMILLA         shift and go to state 23
-    NUMBER          shift and go to state 25
-    FLOAT           shift and go to state 24
-    TRUE            shift and go to state 26
-    FALSE           shift and go to state 27
+    $end            reduce using rule 44 (if -> IF condicion TWOPOINT .)
+
+
+state 64
+
+    (48) condicion -> string IN . string
+    (51) condicion -> string IN . lista
+    (33) string -> . COMILLA text COMILLA
+    (22) lista -> . LCORCH contenido RCORCH
+
+    COMILLA         shift and go to state 25
     LCORCH          shift and go to state 15
 
-    items                          shift and go to state 42
-    contenido                      shift and go to state 75
-    string                         shift and go to state 43
-    number                         shift and go to state 44
-    float                          shift and go to state 45
-    bool                           shift and go to state 46
-    lista                          shift and go to state 47
-
-state 64
-
-    (24) string -> COMILLA text COMILLA .
-
-    $end            reduce using rule 24 (string -> COMILLA text COMILLA .)
-    IN              reduce using rule 24 (string -> COMILLA text COMILLA .)
-    COMA            reduce using rule 24 (string -> COMILLA text COMILLA .)
-    RCORCH          reduce using rule 24 (string -> COMILLA text COMILLA .)
-    RPAREN          reduce using rule 24 (string -> COMILLA text COMILLA .)
-    TWOPOINT        reduce using rule 24 (string -> COMILLA text COMILLA .)
-    POINT           reduce using rule 24 (string -> COMILLA text COMILLA .)
-=======
-    (12) diccionario -> ILLAVE info DLLAVE .
-
-    $end            reduce using rule 12 (diccionario -> ILLAVE info DLLAVE .)
-
-
-state 64
-
-    (13) info -> keys TWOPOINT . items
-    (14) info -> keys TWOPOINT . items COMA info
-    (21) items -> . string
-    (22) items -> . number
-    (23) items -> . float
-    (24) items -> . bool
-    (25) items -> . lista
-    (29) string -> . COMILLA text COMILLA
-    (33) number -> . NUMBER
-    (32) float -> . FLOAT
-    (30) bool -> . TRUE
-    (31) bool -> . FALSE
-    (18) lista -> . LCORCH contenido RCORCH
-
-    COMILLA         shift and go to state 21
-    NUMBER          shift and go to state 23
-    FLOAT           shift and go to state 22
-    TRUE            shift and go to state 24
-    FALSE           shift and go to state 25
-    LCORCH          shift and go to state 20
->>>>>>> 83f434315265db7e70f8bb9d6f3aaf30ac460c3c
-
-    items                          shift and go to state 74
-    string                         shift and go to state 40
-    number                         shift and go to state 41
-    float                          shift and go to state 42
-    bool                           shift and go to state 43
-    lista                          shift and go to state 44
+    string                         shift and go to state 82
+    lista                          shift and go to state 83
 
 state 65
 
-<<<<<<< HEAD
-    (21) print -> PRINT LPAREN string RPAREN .
+    (49) condicion -> NAME IN . lista
+    (50) condicion -> NAME IN . string
+    (55) condicion -> NAME IN . NAME
+    (22) lista -> . LCORCH contenido RCORCH
+    (33) string -> . COMILLA text COMILLA
 
-    $end            reduce using rule 21 (print -> PRINT LPAREN string RPAREN .)
-=======
-    (26) print -> PRINT LPAREN string RPAREN .
+    NAME            shift and go to state 84
+    LCORCH          shift and go to state 15
+    COMILLA         shift and go to state 25
 
-    $end            reduce using rule 26 (print -> PRINT LPAREN string RPAREN .)
->>>>>>> 83f434315265db7e70f8bb9d6f3aaf30ac460c3c
-
+    lista                          shift and go to state 85
+    string                         shift and go to state 86
 
 state 66
 
-<<<<<<< HEAD
-    (34) if -> IF LPAREN condicion RPAREN . TWOPOINT
+    (52) condicion -> number IN . string
+    (33) string -> . COMILLA text COMILLA
 
-    TWOPOINT        shift and go to state 76
-=======
-    (35) if -> IF LPAREN condicion RPAREN . TWOPOINT
+    COMILLA         shift and go to state 25
 
-    TWOPOINT        shift and go to state 75
->>>>>>> 83f434315265db7e70f8bb9d6f3aaf30ac460c3c
-
+    string                         shift and go to state 87
 
 state 67
 
-<<<<<<< HEAD
-    (39) condicion -> string IN string .
+    (53) condicion -> bool IN . lista
+    (22) lista -> . LCORCH contenido RCORCH
 
-    TWOPOINT        reduce using rule 39 (condicion -> string IN string .)
-    RPAREN          reduce using rule 39 (condicion -> string IN string .)
-=======
-    (40) condicion -> string IN string .
+    LCORCH          shift and go to state 15
 
-    TWOPOINT        reduce using rule 40 (condicion -> string IN string .)
-    RPAREN          reduce using rule 40 (condicion -> string IN string .)
->>>>>>> 83f434315265db7e70f8bb9d6f3aaf30ac460c3c
-
+    lista                          shift and go to state 88
 
 state 68
 
-<<<<<<< HEAD
-    (40) condicion -> string IN lista .
+    (54) condicion -> float IN . lista
+    (22) lista -> . LCORCH contenido RCORCH
 
-    TWOPOINT        reduce using rule 40 (condicion -> string IN lista .)
-    RPAREN          reduce using rule 40 (condicion -> string IN lista .)
-=======
-    (41) condicion -> string IN lista .
+    LCORCH          shift and go to state 15
 
-    TWOPOINT        reduce using rule 41 (condicion -> string IN lista .)
-    RPAREN          reduce using rule 41 (condicion -> string IN lista .)
->>>>>>> 83f434315265db7e70f8bb9d6f3aaf30ac460c3c
-
+    lista                          shift and go to state 89
 
 state 69
 
-<<<<<<< HEAD
-    (41) condicion -> number IN string .
+    (45) elif -> ELIF LPAREN condicion . RPAREN TWOPOINT
 
-    TWOPOINT        reduce using rule 41 (condicion -> number IN string .)
-    RPAREN          reduce using rule 41 (condicion -> number IN string .)
-=======
-    (42) condicion -> number IN string .
-
-    TWOPOINT        reduce using rule 42 (condicion -> number IN string .)
-    RPAREN          reduce using rule 42 (condicion -> number IN string .)
->>>>>>> 83f434315265db7e70f8bb9d6f3aaf30ac460c3c
+    RPAREN          shift and go to state 90
 
 
 state 70
 
-<<<<<<< HEAD
-    (42) condicion -> bool IN lista .
+    (46) elif -> ELIF condicion TWOPOINT .
 
-    TWOPOINT        reduce using rule 42 (condicion -> bool IN lista .)
-    RPAREN          reduce using rule 42 (condicion -> bool IN lista .)
-=======
-    (43) condicion -> bool IN lista .
-
-    TWOPOINT        reduce using rule 43 (condicion -> bool IN lista .)
-    RPAREN          reduce using rule 43 (condicion -> bool IN lista .)
->>>>>>> 83f434315265db7e70f8bb9d6f3aaf30ac460c3c
+    $end            reduce using rule 46 (elif -> ELIF condicion TWOPOINT .)
 
 
 state 71
 
-<<<<<<< HEAD
-    (43) condicion -> float IN lista .
+    (39) for -> FOR LPAREN condicionfor . RPAREN TWOPOINT
 
-    TWOPOINT        reduce using rule 43 (condicion -> float IN lista .)
-    RPAREN          reduce using rule 43 (condicion -> float IN lista .)
-=======
-    (44) condicion -> float IN lista .
-
-    TWOPOINT        reduce using rule 44 (condicion -> float IN lista .)
-    RPAREN          reduce using rule 44 (condicion -> float IN lista .)
->>>>>>> 83f434315265db7e70f8bb9d6f3aaf30ac460c3c
+    RPAREN          shift and go to state 91
 
 
 state 72
 
-<<<<<<< HEAD
-    (36) elif -> ELIF LPAREN condicion RPAREN . TWOPOINT
+    (40) for -> FOR condicionfor TWOPOINT .
 
-    TWOPOINT        shift and go to state 77
-=======
-    (37) elif -> ELIF LPAREN condicion RPAREN . TWOPOINT
-
-    TWOPOINT        shift and go to state 76
->>>>>>> 83f434315265db7e70f8bb9d6f3aaf30ac460c3c
+    $end            reduce using rule 40 (for -> FOR condicionfor TWOPOINT .)
 
 
 state 73
 
-<<<<<<< HEAD
-    (30) for -> FOR LPAREN condicionfor RPAREN . TWOPOINT
+    (41) condicionfor -> NAME COMA . NAME IN funcionitems
 
-    TWOPOINT        shift and go to state 78
-=======
-    (20) contenido -> items COMA contenido .
-
-    RCORCH          reduce using rule 20 (contenido -> items COMA contenido .)
->>>>>>> 83f434315265db7e70f8bb9d6f3aaf30ac460c3c
+    NAME            shift and go to state 92
 
 
 state 74
 
-<<<<<<< HEAD
-    (32) condicionfor -> string COMA string . IN funcionitems
+    (22) lista -> LCORCH contenido RCORCH .
 
-    IN              shift and go to state 79
-=======
-    (13) info -> keys TWOPOINT items .
-    (14) info -> keys TWOPOINT items . COMA info
-
-    DLLAVE          reduce using rule 13 (info -> keys TWOPOINT items .)
-    COMA            shift and go to state 77
->>>>>>> 83f434315265db7e70f8bb9d6f3aaf30ac460c3c
+    $end            reduce using rule 22 (lista -> LCORCH contenido RCORCH .)
+    COMA            reduce using rule 22 (lista -> LCORCH contenido RCORCH .)
+    RCORCH          reduce using rule 22 (lista -> LCORCH contenido RCORCH .)
+    TWOPOINT        reduce using rule 22 (lista -> LCORCH contenido RCORCH .)
+    RPAREN          reduce using rule 22 (lista -> LCORCH contenido RCORCH .)
+    DLLAVE          reduce using rule 22 (lista -> LCORCH contenido RCORCH .)
 
 
 state 75
 
-<<<<<<< HEAD
-    (15) contenido -> items COMA contenido .
+    (24) contenido -> items COMA . contenido
+    (23) contenido -> . items
+    (24) contenido -> . items COMA contenido
+    (25) items -> . string
+    (26) items -> . number
+    (27) items -> . float
+    (28) items -> . bool
+    (29) items -> . lista
+    (33) string -> . COMILLA text COMILLA
+    (37) number -> . NUMBER
+    (36) float -> . FLOAT
+    (34) bool -> . TRUE
+    (35) bool -> . FALSE
+    (22) lista -> . LCORCH contenido RCORCH
 
-    RCORCH          reduce using rule 15 (contenido -> items COMA contenido .)
-=======
-    (35) if -> IF LPAREN condicion RPAREN TWOPOINT .
+    COMILLA         shift and go to state 25
+    NUMBER          shift and go to state 27
+    FLOAT           shift and go to state 26
+    TRUE            shift and go to state 28
+    FALSE           shift and go to state 29
+    LCORCH          shift and go to state 15
 
-    $end            reduce using rule 35 (if -> IF LPAREN condicion RPAREN TWOPOINT .)
->>>>>>> 83f434315265db7e70f8bb9d6f3aaf30ac460c3c
-
+    items                          shift and go to state 47
+    contenido                      shift and go to state 93
+    string                         shift and go to state 48
+    number                         shift and go to state 49
+    float                          shift and go to state 50
+    bool                           shift and go to state 51
+    lista                          shift and go to state 52
 
 state 76
 
-<<<<<<< HEAD
-    (34) if -> IF LPAREN condicion RPAREN TWOPOINT .
+    (33) string -> COMILLA text COMILLA .
 
-    $end            reduce using rule 34 (if -> IF LPAREN condicion RPAREN TWOPOINT .)
-=======
-    (37) elif -> ELIF LPAREN condicion RPAREN TWOPOINT .
-
-    $end            reduce using rule 37 (elif -> ELIF LPAREN condicion RPAREN TWOPOINT .)
->>>>>>> 83f434315265db7e70f8bb9d6f3aaf30ac460c3c
+    $end            reduce using rule 33 (string -> COMILLA text COMILLA .)
+    IN              reduce using rule 33 (string -> COMILLA text COMILLA .)
+    COMA            reduce using rule 33 (string -> COMILLA text COMILLA .)
+    RCORCH          reduce using rule 33 (string -> COMILLA text COMILLA .)
+    TWOPOINT        reduce using rule 33 (string -> COMILLA text COMILLA .)
+    RPAREN          reduce using rule 33 (string -> COMILLA text COMILLA .)
+    DLLAVE          reduce using rule 33 (string -> COMILLA text COMILLA .)
 
 
 state 77
 
-<<<<<<< HEAD
-    (36) elif -> ELIF LPAREN condicion RPAREN TWOPOINT .
+    (16) diccionario -> ILLAVE info DLLAVE .
 
-    $end            reduce using rule 36 (elif -> ELIF LPAREN condicion RPAREN TWOPOINT .)
+    $end            reduce using rule 16 (diccionario -> ILLAVE info DLLAVE .)
 
 
 state 78
 
-    (30) for -> FOR LPAREN condicionfor RPAREN TWOPOINT .
+    (17) info -> keys TWOPOINT . items
+    (18) info -> keys TWOPOINT . items COMA info
+    (25) items -> . string
+    (26) items -> . number
+    (27) items -> . float
+    (28) items -> . bool
+    (29) items -> . lista
+    (33) string -> . COMILLA text COMILLA
+    (37) number -> . NUMBER
+    (36) float -> . FLOAT
+    (34) bool -> . TRUE
+    (35) bool -> . FALSE
+    (22) lista -> . LCORCH contenido RCORCH
 
-    $end            reduce using rule 30 (for -> FOR LPAREN condicionfor RPAREN TWOPOINT .)
+    COMILLA         shift and go to state 25
+    NUMBER          shift and go to state 27
+    FLOAT           shift and go to state 26
+    TRUE            shift and go to state 28
+    FALSE           shift and go to state 29
+    LCORCH          shift and go to state 15
 
+    items                          shift and go to state 94
+    string                         shift and go to state 48
+    number                         shift and go to state 49
+    float                          shift and go to state 50
+    bool                           shift and go to state 51
+    lista                          shift and go to state 52
 
 state 79
 
-    (32) condicionfor -> string COMA string IN . funcionitems
-    (33) funcionitems -> . string POINT ITEMS
-    (24) string -> . COMILLA text COMILLA
+    (15) input -> INPUT LPAREN string . RPAREN
 
-    COMILLA         shift and go to state 23
+    RPAREN          shift and go to state 95
 
-    string                         shift and go to state 80
-    funcionitems                   shift and go to state 81
 
 state 80
 
-    (33) funcionitems -> string . POINT ITEMS
+    (30) print -> PRINT LPAREN string RPAREN .
 
-    POINT           shift and go to state 82
+    $end            reduce using rule 30 (print -> PRINT LPAREN string RPAREN .)
 
 
 state 81
 
-    (32) condicionfor -> string COMA string IN funcionitems .
+    (43) if -> IF LPAREN condicion RPAREN . TWOPOINT
 
-    TWOPOINT        reduce using rule 32 (condicionfor -> string COMA string IN funcionitems .)
-    RPAREN          reduce using rule 32 (condicionfor -> string COMA string IN funcionitems .)
+    TWOPOINT        shift and go to state 96
 
 
 state 82
 
-    (33) funcionitems -> string POINT . ITEMS
+    (48) condicion -> string IN string .
 
-    ITEMS           shift and go to state 83
+    TWOPOINT        reduce using rule 48 (condicion -> string IN string .)
+    RPAREN          reduce using rule 48 (condicion -> string IN string .)
 
 
 state 83
 
-    (33) funcionitems -> string POINT ITEMS .
+    (51) condicion -> string IN lista .
 
-    TWOPOINT        reduce using rule 33 (funcionitems -> string POINT ITEMS .)
-    RPAREN          reduce using rule 33 (funcionitems -> string POINT ITEMS .)
-=======
-    (14) info -> keys TWOPOINT items COMA . info
-    (13) info -> . keys TWOPOINT items
-    (14) info -> . keys TWOPOINT items COMA info
-    (15) keys -> . string
-    (16) keys -> . number
-    (17) keys -> . float
-    (29) string -> . COMILLA text COMILLA
-    (33) number -> . NUMBER
-    (32) float -> . FLOAT
+    TWOPOINT        reduce using rule 51 (condicion -> string IN lista .)
+    RPAREN          reduce using rule 51 (condicion -> string IN lista .)
 
-    COMILLA         shift and go to state 21
-    NUMBER          shift and go to state 23
-    FLOAT           shift and go to state 22
 
-    keys                           shift and go to state 47
-    info                           shift and go to state 78
-    string                         shift and go to state 48
-    number                         shift and go to state 49
-    float                          shift and go to state 50
+state 84
 
-state 78
+    (55) condicion -> NAME IN NAME .
 
-    (14) info -> keys TWOPOINT items COMA info .
+    TWOPOINT        reduce using rule 55 (condicion -> NAME IN NAME .)
+    RPAREN          reduce using rule 55 (condicion -> NAME IN NAME .)
 
-    DLLAVE          reduce using rule 14 (info -> keys TWOPOINT items COMA info .)
->>>>>>> 83f434315265db7e70f8bb9d6f3aaf30ac460c3c
+
+state 85
+
+    (49) condicion -> NAME IN lista .
+
+    TWOPOINT        reduce using rule 49 (condicion -> NAME IN lista .)
+    RPAREN          reduce using rule 49 (condicion -> NAME IN lista .)
+
+
+state 86
+
+    (50) condicion -> NAME IN string .
+
+    TWOPOINT        reduce using rule 50 (condicion -> NAME IN string .)
+    RPAREN          reduce using rule 50 (condicion -> NAME IN string .)
+
+
+state 87
+
+    (52) condicion -> number IN string .
+
+    TWOPOINT        reduce using rule 52 (condicion -> number IN string .)
+    RPAREN          reduce using rule 52 (condicion -> number IN string .)
+
+
+state 88
+
+    (53) condicion -> bool IN lista .
+
+    TWOPOINT        reduce using rule 53 (condicion -> bool IN lista .)
+    RPAREN          reduce using rule 53 (condicion -> bool IN lista .)
+
+
+state 89
+
+    (54) condicion -> float IN lista .
+
+    TWOPOINT        reduce using rule 54 (condicion -> float IN lista .)
+    RPAREN          reduce using rule 54 (condicion -> float IN lista .)
+
+
+state 90
+
+    (45) elif -> ELIF LPAREN condicion RPAREN . TWOPOINT
+
+    TWOPOINT        shift and go to state 97
+
+
+state 91
+
+    (39) for -> FOR LPAREN condicionfor RPAREN . TWOPOINT
+
+    TWOPOINT        shift and go to state 98
+
+
+state 92
+
+    (41) condicionfor -> NAME COMA NAME . IN funcionitems
+
+    IN              shift and go to state 99
+
+
+state 93
+
+    (24) contenido -> items COMA contenido .
+
+    RCORCH          reduce using rule 24 (contenido -> items COMA contenido .)
+
+
+state 94
+
+    (17) info -> keys TWOPOINT items .
+    (18) info -> keys TWOPOINT items . COMA info
+
+    DLLAVE          reduce using rule 17 (info -> keys TWOPOINT items .)
+    COMA            shift and go to state 100
+
+
+state 95
+
+    (15) input -> INPUT LPAREN string RPAREN .
+
+    $end            reduce using rule 15 (input -> INPUT LPAREN string RPAREN .)
+
+
+state 96
+
+    (43) if -> IF LPAREN condicion RPAREN TWOPOINT .
+
+    $end            reduce using rule 43 (if -> IF LPAREN condicion RPAREN TWOPOINT .)
+
+
+state 97
+
+    (45) elif -> ELIF LPAREN condicion RPAREN TWOPOINT .
+
+    $end            reduce using rule 45 (elif -> ELIF LPAREN condicion RPAREN TWOPOINT .)
+
+
+state 98
+
+    (39) for -> FOR LPAREN condicionfor RPAREN TWOPOINT .
+
+    $end            reduce using rule 39 (for -> FOR LPAREN condicionfor RPAREN TWOPOINT .)
+
+
+state 99
+
+    (41) condicionfor -> NAME COMA NAME IN . funcionitems
+    (42) funcionitems -> . NAME POINT ITEMS LPAREN RPAREN
+
+    NAME            shift and go to state 101
+
+    funcionitems                   shift and go to state 102
+
+state 100
+
+    (18) info -> keys TWOPOINT items COMA . info
+    (17) info -> . keys TWOPOINT items
+    (18) info -> . keys TWOPOINT items COMA info
+    (19) keys -> . string
+    (20) keys -> . number
+    (21) keys -> . float
+    (33) string -> . COMILLA text COMILLA
+    (37) number -> . NUMBER
+    (36) float -> . FLOAT
+
+    COMILLA         shift and go to state 25
+    NUMBER          shift and go to state 27
+    FLOAT           shift and go to state 26
+
+    keys                           shift and go to state 56
+    info                           shift and go to state 103
+    string                         shift and go to state 57
+    number                         shift and go to state 58
+    float                          shift and go to state 59
+
+state 101
+
+    (42) funcionitems -> NAME . POINT ITEMS LPAREN RPAREN
+
+    POINT           shift and go to state 104
+
+
+state 102
+
+    (41) condicionfor -> NAME COMA NAME IN funcionitems .
+
+    TWOPOINT        reduce using rule 41 (condicionfor -> NAME COMA NAME IN funcionitems .)
+    RPAREN          reduce using rule 41 (condicionfor -> NAME COMA NAME IN funcionitems .)
+
+
+state 103
+
+    (18) info -> keys TWOPOINT items COMA info .
+
+    DLLAVE          reduce using rule 18 (info -> keys TWOPOINT items COMA info .)
+
+
+state 104
+
+    (42) funcionitems -> NAME POINT . ITEMS LPAREN RPAREN
+
+    ITEMS           shift and go to state 105
+
+
+state 105
+
+    (42) funcionitems -> NAME POINT ITEMS . LPAREN RPAREN
+
+    LPAREN          shift and go to state 106
+
+
+state 106
+
+    (42) funcionitems -> NAME POINT ITEMS LPAREN . RPAREN
+
+    RPAREN          shift and go to state 107
+
+
+state 107
+
+    (42) funcionitems -> NAME POINT ITEMS LPAREN RPAREN .
+
+    TWOPOINT        reduce using rule 42 (funcionitems -> NAME POINT ITEMS LPAREN RPAREN .)
+    RPAREN          reduce using rule 42 (funcionitems -> NAME POINT ITEMS LPAREN RPAREN .)
 
