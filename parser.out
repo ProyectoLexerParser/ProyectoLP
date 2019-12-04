@@ -1,76 +1,26 @@
 Created by PLY version 3.11 (http://www.dabeaz.com/ply)
 
-Unused terminals:
-
-    AND
-    ASIGNAR
-    CADENA
-    CIN
-    COMDOB
-    CORDER
-    CORIZQ
-    COUT
-    DISTINTO
-    DIV
-    ENDL
-    ENTERO
-    GET
-    IDENTIFICADOR
-    IGUAL
-    INCLUDE
-    INT
-    LLADER
-    LLAIZQ
-    MAYORDER
-    MAYORIGUAL
-    MAYORIZQ
-    MAYORQUE
-    MENORIGUAL
-    MENORQUE
-    MIENTRAS
-    MINUSMINUS
-    MODULO
-    MULT
-    NAMESPACE
-    NOT
-    NUMERAL
-    OR
-    PARA
-    PARDER
-    PARIZQ
-    PLUSPLUS
-    POTENCIA
-    PUNTOCOMA
-    RESTA
-    RETURN
-    SI
-    SINO
-    STD
-    SUMA
-    USING
-    VOID
-
 Grammar
 
 Rule 0     S' -> opt
 Rule 1     opt -> assign
-Rule 2     opt -> print
-Rule 3     opt -> if
-Rule 4     opt -> elif
-Rule 5     opt -> else
-Rule 6     opt -> for
-Rule 7     opt -> lista
-Rule 8     assign -> var lista
-Rule 9     assign -> var string
-Rule 10    assign -> var float
-Rule 11    assign -> var number
-Rule 12    assign -> var bool
-Rule 13    assign -> var diccionario
-Rule 14    assign -> var input
+Rule 2     opt -> if
+Rule 3     opt -> else
+Rule 4     opt -> funcionReturn
+Rule 5     opt -> funcionFrom
+Rule 6     opt -> sentenciaPrint
+Rule 7     assign -> var string
+Rule 8     assign -> var diccionario
+Rule 9     assign -> var input
+Rule 10    assign -> var cargarDatoDiccionario
+Rule 11    assign -> var restaLongitudAltitud
+Rule 12    assign -> var funcionCalcularA
+Rule 13    assign -> var funcionCalcularC
+Rule 14    assign -> var funcionCalcularKm
 Rule 15    input -> INPUT LPAREN string RPAREN
 Rule 16    diccionario -> ILLAVE info DLLAVE
-Rule 17    info -> keys TWOPOINT items
-Rule 18    info -> keys TWOPOINT items COMA info
+Rule 17    info -> keys TWOPOINT lista
+Rule 18    info -> keys TWOPOINT lista COMA info
 Rule 19    keys -> string
 Rule 20    keys -> number
 Rule 21    keys -> float
@@ -80,135 +30,1321 @@ Rule 24    contenido -> items COMA contenido
 Rule 25    items -> string
 Rule 26    items -> number
 Rule 27    items -> float
-Rule 28    items -> bool
-Rule 29    items -> lista
-Rule 30    print -> PRINT LPAREN string RPAREN
-Rule 31    var -> text EQUALS
-Rule 32    text -> NAME
-Rule 33    string -> COMILLA text COMILLA
-Rule 34    bool -> TRUE
-Rule 35    bool -> FALSE
-Rule 36    float -> FLOAT
-Rule 37    number -> NUMBER
-Rule 38    sentencia -> ESPACIO print
-Rule 39    for -> FOR LPAREN condicionfor RPAREN TWOPOINT
-Rule 40    for -> FOR condicionfor TWOPOINT
-Rule 41    condicionfor -> NAME COMA NAME IN funcionitems
-Rule 42    funcionitems -> NAME POINT ITEMS LPAREN RPAREN
-Rule 43    if -> IF LPAREN condicion RPAREN TWOPOINT
-Rule 44    if -> IF condicion TWOPOINT
-Rule 45    elif -> ELIF LPAREN condicion RPAREN TWOPOINT
-Rule 46    elif -> ELIF condicion TWOPOINT
-Rule 47    else -> ELSE TWOPOINT
-Rule 48    condicion -> string IN string
-Rule 49    condicion -> NAME IN lista
-Rule 50    condicion -> NAME IN string
-Rule 51    condicion -> string IN lista
-Rule 52    condicion -> number IN string
-Rule 53    condicion -> bool IN lista
-Rule 54    condicion -> float IN lista
-Rule 55    condicion -> NAME IN NAME
+Rule 28    items -> lista
+Rule 29    var -> text EQUALS
+Rule 30    text -> NAME
+Rule 31    string -> COMILLA text COMILLA
+Rule 32    float -> FLOAT
+Rule 33    number -> NUMBER
+Rule 34    cargarDatoDiccionario -> obtencionValorDiccionario obtencionIndex
+Rule 35    obtencionValorDiccionario -> text POINT GET LPAREN text RPAREN
+Rule 36    obtencionIndex -> LCORCH number RCORCH
+Rule 37    sentenciaPrint -> PRINT LPAREN string RPAREN
+Rule 38    sentenciaPrint -> PRINT LPAREN string COMA CADENA RPAREN
+Rule 39    if -> IF LPAREN condicion RPAREN TWOPOINT
+Rule 40    if -> IF condicion TWOPOINT
+Rule 41    else -> ELSE TWOPOINT
+Rule 42    condicion -> text IN funcionItems AND text IN funcionItems
+Rule 43    funcionItems -> text POINT KEYS LPAREN RPAREN
+Rule 44    restaLongitudAltitud -> text MINUS text
+Rule 45    funcionCalcularA -> funcionSinGeneral TIMES funcionCos
+Rule 46    funcionSinGeneral -> funcionSin1 TIMES funcionSin2
+Rule 47    funcionSin1 -> SIN LPAREN text DIV number RPAREN EXP number
+Rule 48    funcionSin2 -> SIN LPAREN text DIV number RPAREN EXP number
+Rule 49    funcionCos -> COS LPAREN text RPAREN TIMES COS LPAREN text RPAREN
+Rule 50    funcionCalcularC -> number TIMES ASIN LPAREN SQRT LPAREN text RPAREN RPAREN
+Rule 51    funcionCalcularKm -> number TIMES text
+Rule 52    funcionReturn -> RETURN text
+Rule 53    funcionFrom -> FROM MATH IMPORT TIMES
 
 Terminals, with rules where they appear
 
-AND                  : 
-ASIGNAR              : 
-CADENA               : 
-CIN                  : 
-COMA                 : 18 24 41
-COMDOB               : 
-CORDER               : 
-CORIZQ               : 
-COUT                 : 
-DISTINTO             : 
-DIV                  : 
-ENDL                 : 
-ENTERO               : 
-GET                  : 
-IDENTIFICADOR        : 
-IGUAL                : 
-INCLUDE              : 
-INT                  : 
-LLADER               : 
-LLAIZQ               : 
-MAYORDER             : 
-MAYORIGUAL           : 
-MAYORIZQ             : 
-MAYORQUE             : 
-MENORIGUAL           : 
-MENORQUE             : 
-MIENTRAS             : 
-MINUSMINUS           : 
-MODULO               : 
-MULT                 : 
-NAMESPACE            : 
-NOT                  : 
-NUMERAL              : 
-OR                   : 
-PARA                 : 
-PARDER               : 
-PARIZQ               : 
-PLUSPLUS             : 
-POTENCIA             : 
-PUNTOCOMA            : 
-RESTA                : 
-RETURN               : 
-SI                   : 
-SINO                 : 
-STD                  : 
-SUMA                 : 
-USING                : 
-VOID                 : 
+AND                  : 42
+ASIN                 : 50
+CADENA               : 38
+COMA                 : 18 24 38
+COMILLA              : 31 31
+COS                  : 49 49
+DIV                  : 47 48
+DLLAVE               : 16
+ELSE                 : 41
+EQUALS               : 29
+EXP                  : 47 48
+FLOAT                : 32
+FROM                 : 53
+GET                  : 35
+IF                   : 39 40
+ILLAVE               : 16
+IMPORT               : 53
+IN                   : 42 42
+INPUT                : 15
+KEYS                 : 43
+LCORCH               : 22 36
+LPAREN               : 15 35 37 38 39 43 47 48 49 49 50 50
+MATH                 : 53
+MINUS                : 44
+NAME                 : 30
+NUMBER               : 33
+POINT                : 35 43
+PRINT                : 37 38
+RCORCH               : 22 36
+RETURN               : 52
+RPAREN               : 15 35 37 38 39 43 47 48 49 49 50 50
+SIN                  : 47 48
+SQRT                 : 50
+TIMES                : 45 46 49 50 51 53
+TWOPOINT             : 17 18 39 40 41
 error                : 
 
 Nonterminals, with rules where they appear
 
-COMILLA              : 33 33
-DLLAVE               : 16
-ELIF                 : 45 46
-ELSE                 : 47
-EQUALS               : 31
-ESPACIO              : 38
-FALSE                : 35
-FLOAT                : 36
-FOR                  : 39 40
-IF                   : 43 44
-ILLAVE               : 16
-IN                   : 41 48 49 50 51 52 53 54 55
-INPUT                : 15
-ITEMS                : 42
-LCORCH               : 22
-LPAREN               : 15 30 39 42 43 45
-NAME                 : 32 41 41 42 49 50 55 55
-NUMBER               : 37
-POINT                : 42
-PRINT                : 30
-RCORCH               : 22
-RPAREN               : 15 30 39 42 43 45
-TRUE                 : 34
-TWOPOINT             : 17 18 39 40 43 44 45 46 47
 assign               : 1
-bool                 : 12 28 53
-condicion            : 43 44 45 46
-condicionfor         : 39 40
+cargarDatoDiccionario : 10
+condicion            : 39 40
 contenido            : 22 24
-diccionario          : 13
-elif                 : 4
-else                 : 5
-float                : 10 21 27 54
-for                  : 6
-funcionitems         : 41
-if                   : 3
+diccionario          : 8
+else                 : 3
+float                : 21 27
+funcionCalcularA     : 12
+funcionCalcularC     : 13
+funcionCalcularKm    : 14
+funcionCos           : 45
+funcionFrom          : 5
+funcionItems         : 42 42
+funcionReturn        : 4
+funcionSin1          : 46
+funcionSin2          : 46
+funcionSinGeneral    : 45
+if                   : 2
 info                 : 16 18
-input                : 14
-items                : 17 18 23 24
+input                : 9
+items                : 23 24
 keys                 : 17 18
-lista                : 7 8 29 49 51 53 54
-number               : 11 20 26 52
+lista                : 17 18 28
+number               : 20 26 36 47 47 48 48 50 51
+obtencionIndex       : 34
+obtencionValorDiccionario : 34
 opt                  : 0
-print                : 2 38
-sentencia            : 
-string               : 9 15 19 25 30 48 48 50 51 52
-text                 : 31 33
-var                  : 8 9 10 11 12 13 14
+restaLongitudAltitud : 11
+sentenciaPrint       : 6
+string               : 7 15 19 25 37 38
+text                 : 29 31 35 35 42 42 43 44 44 47 48 49 49 50 51 52
+var                  : 7 8 9 10 11 12 13 14
+
+Parsing method: LALR
+
+state 0
+
+    (0) S' -> . opt
+    (1) opt -> . assign
+    (2) opt -> . if
+    (3) opt -> . else
+    (4) opt -> . funcionReturn
+    (5) opt -> . funcionFrom
+    (6) opt -> . sentenciaPrint
+    (7) assign -> . var string
+    (8) assign -> . var diccionario
+    (9) assign -> . var input
+    (10) assign -> . var cargarDatoDiccionario
+    (11) assign -> . var restaLongitudAltitud
+    (12) assign -> . var funcionCalcularA
+    (13) assign -> . var funcionCalcularC
+    (14) assign -> . var funcionCalcularKm
+    (39) if -> . IF LPAREN condicion RPAREN TWOPOINT
+    (40) if -> . IF condicion TWOPOINT
+    (41) else -> . ELSE TWOPOINT
+    (52) funcionReturn -> . RETURN text
+    (53) funcionFrom -> . FROM MATH IMPORT TIMES
+    (37) sentenciaPrint -> . PRINT LPAREN string RPAREN
+    (38) sentenciaPrint -> . PRINT LPAREN string COMA CADENA RPAREN
+    (29) var -> . text EQUALS
+    (30) text -> . NAME
+
+    IF              shift and go to state 9
+    ELSE            shift and go to state 10
+    RETURN          shift and go to state 11
+    FROM            shift and go to state 13
+    PRINT           shift and go to state 14
+    NAME            shift and go to state 15
+
+    opt                            shift and go to state 1
+    assign                         shift and go to state 2
+    if                             shift and go to state 3
+    else                           shift and go to state 4
+    funcionReturn                  shift and go to state 5
+    funcionFrom                    shift and go to state 6
+    sentenciaPrint                 shift and go to state 7
+    var                            shift and go to state 8
+    text                           shift and go to state 12
+
+state 1
+
+    (0) S' -> opt .
+
+
+
+state 2
+
+    (1) opt -> assign .
+
+    $end            reduce using rule 1 (opt -> assign .)
+
+
+state 3
+
+    (2) opt -> if .
+
+    $end            reduce using rule 2 (opt -> if .)
+
+
+state 4
+
+    (3) opt -> else .
+
+    $end            reduce using rule 3 (opt -> else .)
+
+
+state 5
+
+    (4) opt -> funcionReturn .
+
+    $end            reduce using rule 4 (opt -> funcionReturn .)
+
+
+state 6
+
+    (5) opt -> funcionFrom .
+
+    $end            reduce using rule 5 (opt -> funcionFrom .)
+
+
+state 7
+
+    (6) opt -> sentenciaPrint .
+
+    $end            reduce using rule 6 (opt -> sentenciaPrint .)
+
+
+state 8
+
+    (7) assign -> var . string
+    (8) assign -> var . diccionario
+    (9) assign -> var . input
+    (10) assign -> var . cargarDatoDiccionario
+    (11) assign -> var . restaLongitudAltitud
+    (12) assign -> var . funcionCalcularA
+    (13) assign -> var . funcionCalcularC
+    (14) assign -> var . funcionCalcularKm
+    (31) string -> . COMILLA text COMILLA
+    (16) diccionario -> . ILLAVE info DLLAVE
+    (15) input -> . INPUT LPAREN string RPAREN
+    (34) cargarDatoDiccionario -> . obtencionValorDiccionario obtencionIndex
+    (44) restaLongitudAltitud -> . text MINUS text
+    (45) funcionCalcularA -> . funcionSinGeneral TIMES funcionCos
+    (50) funcionCalcularC -> . number TIMES ASIN LPAREN SQRT LPAREN text RPAREN RPAREN
+    (51) funcionCalcularKm -> . number TIMES text
+    (35) obtencionValorDiccionario -> . text POINT GET LPAREN text RPAREN
+    (30) text -> . NAME
+    (46) funcionSinGeneral -> . funcionSin1 TIMES funcionSin2
+    (33) number -> . NUMBER
+    (47) funcionSin1 -> . SIN LPAREN text DIV number RPAREN EXP number
+
+    COMILLA         shift and go to state 24
+    ILLAVE          shift and go to state 26
+    INPUT           shift and go to state 27
+    NAME            shift and go to state 15
+    NUMBER          shift and go to state 32
+    SIN             shift and go to state 33
+
+    string                         shift and go to state 16
+    diccionario                    shift and go to state 17
+    input                          shift and go to state 18
+    cargarDatoDiccionario          shift and go to state 19
+    restaLongitudAltitud           shift and go to state 20
+    funcionCalcularA               shift and go to state 21
+    funcionCalcularC               shift and go to state 22
+    funcionCalcularKm              shift and go to state 23
+    text                           shift and go to state 25
+    obtencionValorDiccionario      shift and go to state 28
+    funcionSinGeneral              shift and go to state 29
+    number                         shift and go to state 30
+    funcionSin1                    shift and go to state 31
+
+state 9
+
+    (39) if -> IF . LPAREN condicion RPAREN TWOPOINT
+    (40) if -> IF . condicion TWOPOINT
+    (42) condicion -> . text IN funcionItems AND text IN funcionItems
+    (30) text -> . NAME
+
+    LPAREN          shift and go to state 34
+    NAME            shift and go to state 15
+
+    condicion                      shift and go to state 35
+    text                           shift and go to state 36
+
+state 10
+
+    (41) else -> ELSE . TWOPOINT
+
+    TWOPOINT        shift and go to state 37
+
+
+state 11
+
+    (52) funcionReturn -> RETURN . text
+    (30) text -> . NAME
+
+    NAME            shift and go to state 15
+
+    text                           shift and go to state 38
+
+state 12
+
+    (29) var -> text . EQUALS
+
+    EQUALS          shift and go to state 39
+
+
+state 13
+
+    (53) funcionFrom -> FROM . MATH IMPORT TIMES
+
+    MATH            shift and go to state 40
+
+
+state 14
+
+    (37) sentenciaPrint -> PRINT . LPAREN string RPAREN
+    (38) sentenciaPrint -> PRINT . LPAREN string COMA CADENA RPAREN
+
+    LPAREN          shift and go to state 41
+
+
+state 15
+
+    (30) text -> NAME .
+
+    EQUALS          reduce using rule 30 (text -> NAME .)
+    MINUS           reduce using rule 30 (text -> NAME .)
+    POINT           reduce using rule 30 (text -> NAME .)
+    IN              reduce using rule 30 (text -> NAME .)
+    $end            reduce using rule 30 (text -> NAME .)
+    COMILLA         reduce using rule 30 (text -> NAME .)
+    DIV             reduce using rule 30 (text -> NAME .)
+    RPAREN          reduce using rule 30 (text -> NAME .)
+
+
+state 16
+
+    (7) assign -> var string .
+
+    $end            reduce using rule 7 (assign -> var string .)
+
+
+state 17
+
+    (8) assign -> var diccionario .
+
+    $end            reduce using rule 8 (assign -> var diccionario .)
+
+
+state 18
+
+    (9) assign -> var input .
+
+    $end            reduce using rule 9 (assign -> var input .)
+
+
+state 19
+
+    (10) assign -> var cargarDatoDiccionario .
+
+    $end            reduce using rule 10 (assign -> var cargarDatoDiccionario .)
+
+
+state 20
+
+    (11) assign -> var restaLongitudAltitud .
+
+    $end            reduce using rule 11 (assign -> var restaLongitudAltitud .)
+
+
+state 21
+
+    (12) assign -> var funcionCalcularA .
+
+    $end            reduce using rule 12 (assign -> var funcionCalcularA .)
+
+
+state 22
+
+    (13) assign -> var funcionCalcularC .
+
+    $end            reduce using rule 13 (assign -> var funcionCalcularC .)
+
+
+state 23
+
+    (14) assign -> var funcionCalcularKm .
+
+    $end            reduce using rule 14 (assign -> var funcionCalcularKm .)
+
+
+state 24
+
+    (31) string -> COMILLA . text COMILLA
+    (30) text -> . NAME
+
+    NAME            shift and go to state 15
+
+    text                           shift and go to state 42
+
+state 25
+
+    (44) restaLongitudAltitud -> text . MINUS text
+    (35) obtencionValorDiccionario -> text . POINT GET LPAREN text RPAREN
+
+    MINUS           shift and go to state 43
+    POINT           shift and go to state 44
+
+
+state 26
+
+    (16) diccionario -> ILLAVE . info DLLAVE
+    (17) info -> . keys TWOPOINT lista
+    (18) info -> . keys TWOPOINT lista COMA info
+    (19) keys -> . string
+    (20) keys -> . number
+    (21) keys -> . float
+    (31) string -> . COMILLA text COMILLA
+    (33) number -> . NUMBER
+    (32) float -> . FLOAT
+
+    COMILLA         shift and go to state 24
+    NUMBER          shift and go to state 32
+    FLOAT           shift and go to state 50
+
+    info                           shift and go to state 45
+    keys                           shift and go to state 46
+    string                         shift and go to state 47
+    number                         shift and go to state 48
+    float                          shift and go to state 49
+
+state 27
+
+    (15) input -> INPUT . LPAREN string RPAREN
+
+    LPAREN          shift and go to state 51
+
+
+state 28
+
+    (34) cargarDatoDiccionario -> obtencionValorDiccionario . obtencionIndex
+    (36) obtencionIndex -> . LCORCH number RCORCH
+
+    LCORCH          shift and go to state 53
+
+    obtencionIndex                 shift and go to state 52
+
+state 29
+
+    (45) funcionCalcularA -> funcionSinGeneral . TIMES funcionCos
+
+    TIMES           shift and go to state 54
+
+
+state 30
+
+    (50) funcionCalcularC -> number . TIMES ASIN LPAREN SQRT LPAREN text RPAREN RPAREN
+    (51) funcionCalcularKm -> number . TIMES text
+
+    TIMES           shift and go to state 55
+
+
+state 31
+
+    (46) funcionSinGeneral -> funcionSin1 . TIMES funcionSin2
+
+    TIMES           shift and go to state 56
+
+
+state 32
+
+    (33) number -> NUMBER .
+
+    TIMES           reduce using rule 33 (number -> NUMBER .)
+    TWOPOINT        reduce using rule 33 (number -> NUMBER .)
+    RCORCH          reduce using rule 33 (number -> NUMBER .)
+    COMA            reduce using rule 33 (number -> NUMBER .)
+    RPAREN          reduce using rule 33 (number -> NUMBER .)
+
+
+state 33
+
+    (47) funcionSin1 -> SIN . LPAREN text DIV number RPAREN EXP number
+
+    LPAREN          shift and go to state 57
+
+
+state 34
+
+    (39) if -> IF LPAREN . condicion RPAREN TWOPOINT
+    (42) condicion -> . text IN funcionItems AND text IN funcionItems
+    (30) text -> . NAME
+
+    NAME            shift and go to state 15
+
+    condicion                      shift and go to state 58
+    text                           shift and go to state 36
+
+state 35
+
+    (40) if -> IF condicion . TWOPOINT
+
+    TWOPOINT        shift and go to state 59
+
+
+state 36
+
+    (42) condicion -> text . IN funcionItems AND text IN funcionItems
+
+    IN              shift and go to state 60
+
+
+state 37
+
+    (41) else -> ELSE TWOPOINT .
+
+    $end            reduce using rule 41 (else -> ELSE TWOPOINT .)
+
+
+state 38
+
+    (52) funcionReturn -> RETURN text .
+
+    $end            reduce using rule 52 (funcionReturn -> RETURN text .)
+
+
+state 39
+
+    (29) var -> text EQUALS .
+
+    COMILLA         reduce using rule 29 (var -> text EQUALS .)
+    ILLAVE          reduce using rule 29 (var -> text EQUALS .)
+    INPUT           reduce using rule 29 (var -> text EQUALS .)
+    NAME            reduce using rule 29 (var -> text EQUALS .)
+    NUMBER          reduce using rule 29 (var -> text EQUALS .)
+    SIN             reduce using rule 29 (var -> text EQUALS .)
+
+
+state 40
+
+    (53) funcionFrom -> FROM MATH . IMPORT TIMES
+
+    IMPORT          shift and go to state 61
+
+
+state 41
+
+    (37) sentenciaPrint -> PRINT LPAREN . string RPAREN
+    (38) sentenciaPrint -> PRINT LPAREN . string COMA CADENA RPAREN
+    (31) string -> . COMILLA text COMILLA
+
+    COMILLA         shift and go to state 24
+
+    string                         shift and go to state 62
+
+state 42
+
+    (31) string -> COMILLA text . COMILLA
+
+    COMILLA         shift and go to state 63
+
+
+state 43
+
+    (44) restaLongitudAltitud -> text MINUS . text
+    (30) text -> . NAME
+
+    NAME            shift and go to state 15
+
+    text                           shift and go to state 64
+
+state 44
+
+    (35) obtencionValorDiccionario -> text POINT . GET LPAREN text RPAREN
+
+    GET             shift and go to state 65
+
+
+state 45
+
+    (16) diccionario -> ILLAVE info . DLLAVE
+
+    DLLAVE          shift and go to state 66
+
+
+state 46
+
+    (17) info -> keys . TWOPOINT lista
+    (18) info -> keys . TWOPOINT lista COMA info
+
+    TWOPOINT        shift and go to state 67
+
+
+state 47
+
+    (19) keys -> string .
+
+    TWOPOINT        reduce using rule 19 (keys -> string .)
+
+
+state 48
+
+    (20) keys -> number .
+
+    TWOPOINT        reduce using rule 20 (keys -> number .)
+
+
+state 49
+
+    (21) keys -> float .
+
+    TWOPOINT        reduce using rule 21 (keys -> float .)
+
+
+state 50
+
+    (32) float -> FLOAT .
+
+    TWOPOINT        reduce using rule 32 (float -> FLOAT .)
+    COMA            reduce using rule 32 (float -> FLOAT .)
+    RCORCH          reduce using rule 32 (float -> FLOAT .)
+
+
+state 51
+
+    (15) input -> INPUT LPAREN . string RPAREN
+    (31) string -> . COMILLA text COMILLA
+
+    COMILLA         shift and go to state 24
+
+    string                         shift and go to state 68
+
+state 52
+
+    (34) cargarDatoDiccionario -> obtencionValorDiccionario obtencionIndex .
+
+    $end            reduce using rule 34 (cargarDatoDiccionario -> obtencionValorDiccionario obtencionIndex .)
+
+
+state 53
+
+    (36) obtencionIndex -> LCORCH . number RCORCH
+    (33) number -> . NUMBER
+
+    NUMBER          shift and go to state 32
+
+    number                         shift and go to state 69
+
+state 54
+
+    (45) funcionCalcularA -> funcionSinGeneral TIMES . funcionCos
+    (49) funcionCos -> . COS LPAREN text RPAREN TIMES COS LPAREN text RPAREN
+
+    COS             shift and go to state 71
+
+    funcionCos                     shift and go to state 70
+
+state 55
+
+    (50) funcionCalcularC -> number TIMES . ASIN LPAREN SQRT LPAREN text RPAREN RPAREN
+    (51) funcionCalcularKm -> number TIMES . text
+    (30) text -> . NAME
+
+    ASIN            shift and go to state 72
+    NAME            shift and go to state 15
+
+    text                           shift and go to state 73
+
+state 56
+
+    (46) funcionSinGeneral -> funcionSin1 TIMES . funcionSin2
+    (48) funcionSin2 -> . SIN LPAREN text DIV number RPAREN EXP number
+
+    SIN             shift and go to state 75
+
+    funcionSin2                    shift and go to state 74
+
+state 57
+
+    (47) funcionSin1 -> SIN LPAREN . text DIV number RPAREN EXP number
+    (30) text -> . NAME
+
+    NAME            shift and go to state 15
+
+    text                           shift and go to state 76
+
+state 58
+
+    (39) if -> IF LPAREN condicion . RPAREN TWOPOINT
+
+    RPAREN          shift and go to state 77
+
+
+state 59
+
+    (40) if -> IF condicion TWOPOINT .
+
+    $end            reduce using rule 40 (if -> IF condicion TWOPOINT .)
+
+
+state 60
+
+    (42) condicion -> text IN . funcionItems AND text IN funcionItems
+    (43) funcionItems -> . text POINT KEYS LPAREN RPAREN
+    (30) text -> . NAME
+
+    NAME            shift and go to state 15
+
+    text                           shift and go to state 78
+    funcionItems                   shift and go to state 79
+
+state 61
+
+    (53) funcionFrom -> FROM MATH IMPORT . TIMES
+
+    TIMES           shift and go to state 80
+
+
+state 62
+
+    (37) sentenciaPrint -> PRINT LPAREN string . RPAREN
+    (38) sentenciaPrint -> PRINT LPAREN string . COMA CADENA RPAREN
+
+    RPAREN          shift and go to state 81
+    COMA            shift and go to state 82
+
+
+state 63
+
+    (31) string -> COMILLA text COMILLA .
+
+    $end            reduce using rule 31 (string -> COMILLA text COMILLA .)
+    TWOPOINT        reduce using rule 31 (string -> COMILLA text COMILLA .)
+    RPAREN          reduce using rule 31 (string -> COMILLA text COMILLA .)
+    COMA            reduce using rule 31 (string -> COMILLA text COMILLA .)
+    RCORCH          reduce using rule 31 (string -> COMILLA text COMILLA .)
+
+
+state 64
+
+    (44) restaLongitudAltitud -> text MINUS text .
+
+    $end            reduce using rule 44 (restaLongitudAltitud -> text MINUS text .)
+
+
+state 65
+
+    (35) obtencionValorDiccionario -> text POINT GET . LPAREN text RPAREN
+
+    LPAREN          shift and go to state 83
+
+
+state 66
+
+    (16) diccionario -> ILLAVE info DLLAVE .
+
+    $end            reduce using rule 16 (diccionario -> ILLAVE info DLLAVE .)
+
+
+state 67
+
+    (17) info -> keys TWOPOINT . lista
+    (18) info -> keys TWOPOINT . lista COMA info
+    (22) lista -> . LCORCH contenido RCORCH
+
+    LCORCH          shift and go to state 85
+
+    lista                          shift and go to state 84
+
+state 68
+
+    (15) input -> INPUT LPAREN string . RPAREN
+
+    RPAREN          shift and go to state 86
+
+
+state 69
+
+    (36) obtencionIndex -> LCORCH number . RCORCH
+
+    RCORCH          shift and go to state 87
+
+
+state 70
+
+    (45) funcionCalcularA -> funcionSinGeneral TIMES funcionCos .
+
+    $end            reduce using rule 45 (funcionCalcularA -> funcionSinGeneral TIMES funcionCos .)
+
+
+state 71
+
+    (49) funcionCos -> COS . LPAREN text RPAREN TIMES COS LPAREN text RPAREN
+
+    LPAREN          shift and go to state 88
+
+
+state 72
+
+    (50) funcionCalcularC -> number TIMES ASIN . LPAREN SQRT LPAREN text RPAREN RPAREN
+
+    LPAREN          shift and go to state 89
+
+
+state 73
+
+    (51) funcionCalcularKm -> number TIMES text .
+
+    $end            reduce using rule 51 (funcionCalcularKm -> number TIMES text .)
+
+
+state 74
+
+    (46) funcionSinGeneral -> funcionSin1 TIMES funcionSin2 .
+
+    TIMES           reduce using rule 46 (funcionSinGeneral -> funcionSin1 TIMES funcionSin2 .)
+
+
+state 75
+
+    (48) funcionSin2 -> SIN . LPAREN text DIV number RPAREN EXP number
+
+    LPAREN          shift and go to state 90
+
+
+state 76
+
+    (47) funcionSin1 -> SIN LPAREN text . DIV number RPAREN EXP number
+
+    DIV             shift and go to state 91
+
+
+state 77
+
+    (39) if -> IF LPAREN condicion RPAREN . TWOPOINT
+
+    TWOPOINT        shift and go to state 92
+
+
+state 78
+
+    (43) funcionItems -> text . POINT KEYS LPAREN RPAREN
+
+    POINT           shift and go to state 93
+
+
+state 79
+
+    (42) condicion -> text IN funcionItems . AND text IN funcionItems
+
+    AND             shift and go to state 94
+
+
+state 80
+
+    (53) funcionFrom -> FROM MATH IMPORT TIMES .
+
+    $end            reduce using rule 53 (funcionFrom -> FROM MATH IMPORT TIMES .)
+
+
+state 81
+
+    (37) sentenciaPrint -> PRINT LPAREN string RPAREN .
+
+    $end            reduce using rule 37 (sentenciaPrint -> PRINT LPAREN string RPAREN .)
+
+
+state 82
+
+    (38) sentenciaPrint -> PRINT LPAREN string COMA . CADENA RPAREN
+
+    CADENA          shift and go to state 95
+
+
+state 83
+
+    (35) obtencionValorDiccionario -> text POINT GET LPAREN . text RPAREN
+    (30) text -> . NAME
+
+    NAME            shift and go to state 15
+
+    text                           shift and go to state 96
+
+state 84
+
+    (17) info -> keys TWOPOINT lista .
+    (18) info -> keys TWOPOINT lista . COMA info
+
+    DLLAVE          reduce using rule 17 (info -> keys TWOPOINT lista .)
+    COMA            shift and go to state 97
+
+
+state 85
+
+    (22) lista -> LCORCH . contenido RCORCH
+    (23) contenido -> . items
+    (24) contenido -> . items COMA contenido
+    (25) items -> . string
+    (26) items -> . number
+    (27) items -> . float
+    (28) items -> . lista
+    (31) string -> . COMILLA text COMILLA
+    (33) number -> . NUMBER
+    (32) float -> . FLOAT
+    (22) lista -> . LCORCH contenido RCORCH
+
+    COMILLA         shift and go to state 24
+    NUMBER          shift and go to state 32
+    FLOAT           shift and go to state 50
+    LCORCH          shift and go to state 85
+
+    contenido                      shift and go to state 98
+    items                          shift and go to state 99
+    string                         shift and go to state 100
+    number                         shift and go to state 101
+    float                          shift and go to state 102
+    lista                          shift and go to state 103
+
+state 86
+
+    (15) input -> INPUT LPAREN string RPAREN .
+
+    $end            reduce using rule 15 (input -> INPUT LPAREN string RPAREN .)
+
+
+state 87
+
+    (36) obtencionIndex -> LCORCH number RCORCH .
+
+    $end            reduce using rule 36 (obtencionIndex -> LCORCH number RCORCH .)
+
+
+state 88
+
+    (49) funcionCos -> COS LPAREN . text RPAREN TIMES COS LPAREN text RPAREN
+    (30) text -> . NAME
+
+    NAME            shift and go to state 15
+
+    text                           shift and go to state 104
+
+state 89
+
+    (50) funcionCalcularC -> number TIMES ASIN LPAREN . SQRT LPAREN text RPAREN RPAREN
+
+    SQRT            shift and go to state 105
+
+
+state 90
+
+    (48) funcionSin2 -> SIN LPAREN . text DIV number RPAREN EXP number
+    (30) text -> . NAME
+
+    NAME            shift and go to state 15
+
+    text                           shift and go to state 106
+
+state 91
+
+    (47) funcionSin1 -> SIN LPAREN text DIV . number RPAREN EXP number
+    (33) number -> . NUMBER
+
+    NUMBER          shift and go to state 32
+
+    number                         shift and go to state 107
+
+state 92
+
+    (39) if -> IF LPAREN condicion RPAREN TWOPOINT .
+
+    $end            reduce using rule 39 (if -> IF LPAREN condicion RPAREN TWOPOINT .)
+
+
+state 93
+
+    (43) funcionItems -> text POINT . KEYS LPAREN RPAREN
+
+    KEYS            shift and go to state 108
+
+
+state 94
+
+    (42) condicion -> text IN funcionItems AND . text IN funcionItems
+    (30) text -> . NAME
+
+    NAME            shift and go to state 15
+
+    text                           shift and go to state 109
+
+state 95
+
+    (38) sentenciaPrint -> PRINT LPAREN string COMA CADENA . RPAREN
+
+    RPAREN          shift and go to state 110
+
+
+state 96
+
+    (35) obtencionValorDiccionario -> text POINT GET LPAREN text . RPAREN
+
+    RPAREN          shift and go to state 111
+
+
+state 97
+
+    (18) info -> keys TWOPOINT lista COMA . info
+    (17) info -> . keys TWOPOINT lista
+    (18) info -> . keys TWOPOINT lista COMA info
+    (19) keys -> . string
+    (20) keys -> . number
+    (21) keys -> . float
+    (31) string -> . COMILLA text COMILLA
+    (33) number -> . NUMBER
+    (32) float -> . FLOAT
+
+    COMILLA         shift and go to state 24
+    NUMBER          shift and go to state 32
+    FLOAT           shift and go to state 50
+
+    keys                           shift and go to state 46
+    info                           shift and go to state 112
+    string                         shift and go to state 47
+    number                         shift and go to state 48
+    float                          shift and go to state 49
+
+state 98
+
+    (22) lista -> LCORCH contenido . RCORCH
+
+    RCORCH          shift and go to state 113
+
+
+state 99
+
+    (23) contenido -> items .
+    (24) contenido -> items . COMA contenido
+
+    RCORCH          reduce using rule 23 (contenido -> items .)
+    COMA            shift and go to state 114
+
+
+state 100
+
+    (25) items -> string .
+
+    COMA            reduce using rule 25 (items -> string .)
+    RCORCH          reduce using rule 25 (items -> string .)
+
+
+state 101
+
+    (26) items -> number .
+
+    COMA            reduce using rule 26 (items -> number .)
+    RCORCH          reduce using rule 26 (items -> number .)
+
+
+state 102
+
+    (27) items -> float .
+
+    COMA            reduce using rule 27 (items -> float .)
+    RCORCH          reduce using rule 27 (items -> float .)
+
+
+state 103
+
+    (28) items -> lista .
+
+    COMA            reduce using rule 28 (items -> lista .)
+    RCORCH          reduce using rule 28 (items -> lista .)
+
+
+state 104
+
+    (49) funcionCos -> COS LPAREN text . RPAREN TIMES COS LPAREN text RPAREN
+
+    RPAREN          shift and go to state 115
+
+
+state 105
+
+    (50) funcionCalcularC -> number TIMES ASIN LPAREN SQRT . LPAREN text RPAREN RPAREN
+
+    LPAREN          shift and go to state 116
+
+
+state 106
+
+    (48) funcionSin2 -> SIN LPAREN text . DIV number RPAREN EXP number
+
+    DIV             shift and go to state 117
+
+
+state 107
+
+    (47) funcionSin1 -> SIN LPAREN text DIV number . RPAREN EXP number
+
+    RPAREN          shift and go to state 118
+
+
+state 108
+
+    (43) funcionItems -> text POINT KEYS . LPAREN RPAREN
+
+    LPAREN          shift and go to state 119
+
+
+state 109
+
+    (42) condicion -> text IN funcionItems AND text . IN funcionItems
+
+    IN              shift and go to state 120
+
+
+state 110
+
+    (38) sentenciaPrint -> PRINT LPAREN string COMA CADENA RPAREN .
+
+    $end            reduce using rule 38 (sentenciaPrint -> PRINT LPAREN string COMA CADENA RPAREN .)
+
+
+state 111
+
+    (35) obtencionValorDiccionario -> text POINT GET LPAREN text RPAREN .
+
+    LCORCH          reduce using rule 35 (obtencionValorDiccionario -> text POINT GET LPAREN text RPAREN .)
+
+
+state 112
+
+    (18) info -> keys TWOPOINT lista COMA info .
+
+    DLLAVE          reduce using rule 18 (info -> keys TWOPOINT lista COMA info .)
+
+
+state 113
+
+    (22) lista -> LCORCH contenido RCORCH .
+
+    COMA            reduce using rule 22 (lista -> LCORCH contenido RCORCH .)
+    DLLAVE          reduce using rule 22 (lista -> LCORCH contenido RCORCH .)
+    RCORCH          reduce using rule 22 (lista -> LCORCH contenido RCORCH .)
+
+
+state 114
+
+    (24) contenido -> items COMA . contenido
+    (23) contenido -> . items
+    (24) contenido -> . items COMA contenido
+    (25) items -> . string
+    (26) items -> . number
+    (27) items -> . float
+    (28) items -> . lista
+    (31) string -> . COMILLA text COMILLA
+    (33) number -> . NUMBER
+    (32) float -> . FLOAT
+    (22) lista -> . LCORCH contenido RCORCH
+
+    COMILLA         shift and go to state 24
+    NUMBER          shift and go to state 32
+    FLOAT           shift and go to state 50
+    LCORCH          shift and go to state 85
+
+    items                          shift and go to state 99
+    contenido                      shift and go to state 121
+    string                         shift and go to state 100
+    number                         shift and go to state 101
+    float                          shift and go to state 102
+    lista                          shift and go to state 103
+
+state 115
+
+    (49) funcionCos -> COS LPAREN text RPAREN . TIMES COS LPAREN text RPAREN
+
+    TIMES           shift and go to state 122
+
+
+state 116
+
+    (50) funcionCalcularC -> number TIMES ASIN LPAREN SQRT LPAREN . text RPAREN RPAREN
+    (30) text -> . NAME
+
+    NAME            shift and go to state 15
+
+    text                           shift and go to state 123
+
+state 117
+
+    (48) funcionSin2 -> SIN LPAREN text DIV . number RPAREN EXP number
+    (33) number -> . NUMBER
+
+    NUMBER          shift and go to state 32
+
+    number                         shift and go to state 124
+
+state 118
+
+    (47) funcionSin1 -> SIN LPAREN text DIV number RPAREN . EXP number
+
+    EXP             shift and go to state 125
+
+
+state 119
+
+    (43) funcionItems -> text POINT KEYS LPAREN . RPAREN
+
+    RPAREN          shift and go to state 126
+
+
+state 120
+
+    (42) condicion -> text IN funcionItems AND text IN . funcionItems
+    (43) funcionItems -> . text POINT KEYS LPAREN RPAREN
+    (30) text -> . NAME
+
+    NAME            shift and go to state 15
+
+    text                           shift and go to state 78
+    funcionItems                   shift and go to state 127
+
+state 121
+
+    (24) contenido -> items COMA contenido .
+
+    RCORCH          reduce using rule 24 (contenido -> items COMA contenido .)
+
+
+state 122
+
+    (49) funcionCos -> COS LPAREN text RPAREN TIMES . COS LPAREN text RPAREN
+
+    COS             shift and go to state 128
+
+
+state 123
+
+    (50) funcionCalcularC -> number TIMES ASIN LPAREN SQRT LPAREN text . RPAREN RPAREN
+
+    RPAREN          shift and go to state 129
+
+
+state 124
+
+    (48) funcionSin2 -> SIN LPAREN text DIV number . RPAREN EXP number
+
+    RPAREN          shift and go to state 130
+
+
+state 125
+
+    (47) funcionSin1 -> SIN LPAREN text DIV number RPAREN EXP . number
+    (33) number -> . NUMBER
+
+    NUMBER          shift and go to state 32
+
+    number                         shift and go to state 131
+
+state 126
+
+    (43) funcionItems -> text POINT KEYS LPAREN RPAREN .
+
+    AND             reduce using rule 43 (funcionItems -> text POINT KEYS LPAREN RPAREN .)
+    TWOPOINT        reduce using rule 43 (funcionItems -> text POINT KEYS LPAREN RPAREN .)
+    RPAREN          reduce using rule 43 (funcionItems -> text POINT KEYS LPAREN RPAREN .)
+
+
+state 127
+
+    (42) condicion -> text IN funcionItems AND text IN funcionItems .
+
+    TWOPOINT        reduce using rule 42 (condicion -> text IN funcionItems AND text IN funcionItems .)
+    RPAREN          reduce using rule 42 (condicion -> text IN funcionItems AND text IN funcionItems .)
+
+
+state 128
+
+    (49) funcionCos -> COS LPAREN text RPAREN TIMES COS . LPAREN text RPAREN
+
+    LPAREN          shift and go to state 132
+
+
+state 129
+
+    (50) funcionCalcularC -> number TIMES ASIN LPAREN SQRT LPAREN text RPAREN . RPAREN
+
+    RPAREN          shift and go to state 133
+
+
+state 130
+
+    (48) funcionSin2 -> SIN LPAREN text DIV number RPAREN . EXP number
+
+    EXP             shift and go to state 134
+
+
+state 131
+
+    (47) funcionSin1 -> SIN LPAREN text DIV number RPAREN EXP number .
+
+    TIMES           reduce using rule 47 (funcionSin1 -> SIN LPAREN text DIV number RPAREN EXP number .)
+
+
+state 132
+
+    (49) funcionCos -> COS LPAREN text RPAREN TIMES COS LPAREN . text RPAREN
+    (30) text -> . NAME
+
+    NAME            shift and go to state 15
+
+    text                           shift and go to state 135
+
+state 133
+
+    (50) funcionCalcularC -> number TIMES ASIN LPAREN SQRT LPAREN text RPAREN RPAREN .
+
+    $end            reduce using rule 50 (funcionCalcularC -> number TIMES ASIN LPAREN SQRT LPAREN text RPAREN RPAREN .)
+
+
+state 134
+
+    (48) funcionSin2 -> SIN LPAREN text DIV number RPAREN EXP . number
+    (33) number -> . NUMBER
+
+    NUMBER          shift and go to state 32
+
+    number                         shift and go to state 136
+
+state 135
+
+    (49) funcionCos -> COS LPAREN text RPAREN TIMES COS LPAREN text . RPAREN
+
+    RPAREN          shift and go to state 137
+
+
+state 136
+
+    (48) funcionSin2 -> SIN LPAREN text DIV number RPAREN EXP number .
+
+    TIMES           reduce using rule 48 (funcionSin2 -> SIN LPAREN text DIV number RPAREN EXP number .)
+
+
+state 137
+
+    (49) funcionCos -> COS LPAREN text RPAREN TIMES COS LPAREN text RPAREN .
+
+    $end            reduce using rule 49 (funcionCos -> COS LPAREN text RPAREN TIMES COS LPAREN text RPAREN .)
 

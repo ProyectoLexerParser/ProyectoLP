@@ -8,22 +8,22 @@ resultadoParser = []
 
 def p_option(p):
     '''opt : assign
-            | print
             | if
-            | elif
             | else
-            | for
-            | lista'''
+            | funcionReturn
+            | funcionFrom
+            | sentenciaPrint'''
     p[0] = p[1]
 
 def p_assign(p):
-    '''assign : var lista
-            | var string
-            | var float
-            | var number
-            | var bool
+    '''assign : var string
             | var diccionario
-            | var input '''
+            | var input
+            | var cargarDatoDiccionario
+            | var restaLongitudAltitud
+            | var funcionCalcularA
+            | var funcionCalcularC
+            | var funcionCalcularKm'''
     p[0] = p[2]
 
 def p_input(p):
@@ -35,8 +35,8 @@ def p_diccionario(p):
     p[0] = p[1] + p[2] + p[3]
 
 def p_info(p):
-    '''info : keys TWOPOINT items
-            | keys TWOPOINT items COMA info'''
+    '''info : keys TWOPOINT lista
+            | keys TWOPOINT lista COMA info'''
     if len(p) == 4:
         p[0] = str(p[1]) + p[2] + str(p[3])
     elif len(p) ==6:
@@ -64,13 +64,8 @@ def p_items(p):
     '''items : string
             | number
             | float
-            | bool
             | lista'''
     p[0] = p[1]
-
-def p_print(p):
-    'print : PRINT LPAREN string RPAREN'
-    p[0] = p[1] + p[2] + p[3] + p[4]
 
 def p_var(p):
     'var : text EQUALS'
@@ -85,11 +80,6 @@ def p_string(p):
     'string : COMILLA text COMILLA'
     p[0] = p[1] + p[2] + p[3]
 
-def p_bool(p):
-    ''' bool : TRUE
-            | FALSE'''
-    p[0] = p[1]
-
 def p_float(p):
     'float : FLOAT'
     p[0] = p[1]
@@ -98,41 +88,30 @@ def p_number(p):
     'number : NUMBER'
     p[0] = p[1]
 
-# ENTRADA por bloque
-
-def p_sentencia(p):
-    'sentencia : ESPACIO print'
+def p_cargarDatoDiccionario(p):
+    '''cargarDatoDiccionario :  obtencionValorDiccionario obtencionIndex'''
+    # if p[1] in variables and p[3] in variables:
     p[0] = p[1] + p[2]
 
-def p_for(p):
-    '''for : FOR LPAREN condicionfor RPAREN TWOPOINT
-            | FOR condicionfor TWOPOINT'''
-    if len(p) == 6:
-        p[0] = p[1] + p[2] + p[3] + p[4] + p[5]
-    elif len(p) == 4:
-        p[0] = p[1] + p[2] + p[3]
+def p_obtencionValorDiccionario(p):
+    'obtencionValorDiccionario : text POINT GET LPAREN text RPAREN'
+    p[0] = p[1] + p[2] + p[3] + p[4] + p[5] + p[6]
 
-def p_condicionfor(p):
-    '''condicionfor : NAME COMA NAME IN funcionitems '''
-    if p[1] != p[3]:
-        dicValor = p[3]
-        p[0] = p[1] + p[2] + p[3] + p[4] + p[5]
+def p_obtencionIndex(p):
+    'obtencionIndex : LCORCH number RCORCH'
+    p[0] = p[1] + str(p[2]) + p[3]
 
-def p_funcionitems(p):
-    'funcionitems : NAME POINT ITEMS LPAREN RPAREN'
-    p[0] = p[1] + p[2] + p[3] +p[4] + p[5]
+def p_sentenciaPrint(p):
+    '''sentenciaPrint : PRINT LPAREN string RPAREN
+                | PRINT LPAREN string COMA CADENA RPAREN'''
+    if len(p) == 5:
+        p[0] = p[1] + p[2] + p[3] + p[4]
+    else:
+        p[0] = p[1] + p[2] + p[3] + p[4] + p[5] + p[6]
 
 def p_if(p):
     '''if : IF LPAREN condicion RPAREN TWOPOINT
                 | IF condicion TWOPOINT'''
-    if len(p) == 6:
-        p[0] = p[1] + p[2] + p[3] + p[4] + p[5]
-    elif len(p) == 4:
-        p[0] = p[1] + p[2] + p[3]
-
-def p_elif(p):
-    '''elif : ELIF LPAREN condicion RPAREN TWOPOINT
-                | ELIF condicion TWOPOINT'''
     if len(p) == 6:
         p[0] = p[1] + p[2] + p[3] + p[4] + p[5]
     elif len(p) == 4:
@@ -143,18 +122,58 @@ def p_else(p):
     p[0] = p[1] + p[2]
 
 def p_condicion(p):
-    '''condicion : string IN string
-                | NAME IN lista
-                | NAME IN string
-                | string IN lista
-                | number IN string
-                | bool IN lista
-                | float IN lista
-                | NAME IN NAME'''
-    #if p[1] == dicValor:
+    '''condicion : text IN funcionItems AND text IN funcionItems'''
+    # if p[1] != p[5]:
+    p[0] = p[1] + p[2] + p[3] + p[4] + p[5] + p[6] +p[7]
+
+def p_funcionItems(p):
+    'funcionItems : text POINT KEYS LPAREN RPAREN'
+    p[0] = p[1] + p[2] + p[3] + p[4] +p[5]
+
+def p_restaLongitudAltitud(p):
+    'restaLongitudAltitud : text MINUS text'
     p[0] = p[1] + p[2] + p[3]
 
-    #p[0] = str(p[1]) + p[2] + p[3]
+def p_funcionCalcularA(p):
+    'funcionCalcularA : funcionSinGeneral TIMES funcionCos'
+    p[0] = p[1] + p[2] + p[3]
+
+def p_funcionSinGeneral(p):
+    'funcionSinGeneral : funcionSin1 TIMES funcionSin2'
+    p[0] = p[1] + p[2] +p[3]
+
+def p_funcionSin1(p):
+    'funcionSin1 : SIN LPAREN text DIV number RPAREN EXP number '
+    if p[5] == 2 and p[8] == 2:
+        p[0] = p[1] + p[2] + p[3] + p[4] + str(p[5]) + p[6] + p[7] + str(p[8])
+
+def p_funcionSin2(p):
+    'funcionSin2 : SIN LPAREN text DIV number RPAREN EXP number '
+    if p[5] == 2 and p[8] == 2:
+        p[0] = p[1] + p[2] + p[3] + p[4] + str(p[5]) + p[6] + p[7] + str(p[8])
+
+def p_funcionCos(p):
+    'funcionCos : COS LPAREN text RPAREN TIMES COS LPAREN text RPAREN'
+    if p[3] != p[8]:
+        p[0] = p[1] + p[2] + p[3] + p[4] + str(p[5]) + p[6] + p[7] + str(p[8]) +p[9]
+
+def p_funcionCalcularC(p):
+    'funcionCalcularC : number TIMES ASIN LPAREN SQRT LPAREN text RPAREN RPAREN'
+    if p[1] == 2:
+        p[0] = str(p[1]) + p[2] + p[3] + p[4] + str(p[5]) + p[6] + p[7] + p[8] +p[9]
+
+def p_funcionCalcularKm(p):
+    'funcionCalcularKm : number TIMES text'
+    if p[1] == 6367:
+        p[0] = str(p[1]) + p[2] + p[3]
+
+def p_funcionReturn(p):
+    'funcionReturn : RETURN text'
+    p[0] = p[1] + p[2]
+
+def p_funcionFrom(p):
+    'funcionFrom : FROM MATH IMPORT TIMES'
+    p[0] = p[1] + p[2] + p[3] + p[4]
 
 def p_error(p):
     global resultadoParser
