@@ -3,7 +3,7 @@ resultadoLexer = []
 
 tokens = [
         'NAME', 'NUMBER', 'EQUALS', 'COMILLA', 'FLOAT','TWOPOINT', 'AND','SQRT', 'EXP', 'DIV', 'TIMES','GET', 'MINUS', 'MATH',
-        'COS','SIN', 'ASIN','LPAREN', 'RPAREN','LCORCH', 'RCORCH','COMA', 'POINT', 'ILLAVE', 'DLLAVE', 'CADENA','KEYS'
+        'COS','SIN', 'ASIN','LPAREN', 'RPAREN','LCORCH', 'RCORCH','COMA', 'POINT', 'ILLAVE', 'DLLAVE','KEYS', 'PLUS'
 ]
 
 reservadas = {
@@ -30,6 +30,10 @@ t_TWOPOINT = r':'
 t_POINT = r'\.'
 t_ILLAVE = r'\{'
 t_DLLAVE= r'\}'
+
+def t_PLUS(t):
+    r'\+'
+    return t
 
 def t_MINUS(t):
     r'\-'

@@ -9,7 +9,7 @@ from PyQt5.QtCore import pyqtSlot
 class App(QMainWindow):
     def __init__(self):
         super().__init__()
-        self.title = 'PyQt5 textbox - pythonspot.com'
+        self.title = 'VALIDADOR LENGUAJES DE PROGRAMACIÓN'
         self.left = 240
         self.top = 140
         self.width = 900
@@ -20,11 +20,9 @@ class App(QMainWindow):
         self.setWindowTitle(self.title)
         self.setGeometry(self.left, self.top, self.width, self.height)
 
-
-
         # Creacion Label Titulo
-        self.titulo = QLabel("<h2>Verifiador Lexico y Sintactico de Python </h2>", self)
-        self.titulo.move(10, 10)
+        self.titulo = QLabel("<h2>Verifiador Lexico y Sintactico Python </h2>", self)
+        self.titulo.move(250, 10)
         self.titulo.resize(400, 50)
 
         #Creacion de TextArea
@@ -40,20 +38,20 @@ class App(QMainWindow):
         self.retro.resize(410, 280)
 
         # Boton Lexer&Parser
-        self.button = QPushButton('Comprobar Lexico y Sintaxis', self)
-        self.button.resize(150, 40)
+        self.button = QPushButton('Comprobar Lexer y Parser', self)
+        self.button.resize(150, 80)
         self.button.move(self.textarea.x(), self.textarea.y()+ self.textarea.height()+ 30)
         self.button.clicked.connect(self.comprobar_LexeryParser)
 
 
         # Boton Lexer
-        self.buttonLexer = QPushButton('Comprobar Lexico', self)
-        self.buttonLexer.resize(100, 40)
+        self.buttonLexer = QPushButton('Comprobar Lexer', self)
+        self.buttonLexer.resize(100, 80)
         self.buttonLexer.move(self.textarea.x() + self.button.width() + 20, self.textarea.y()+ self.textarea.height()+ 30)
         self.buttonLexer.clicked.connect(self.comprobar_Lexer)
         # Boton Parser
-        self.buttonParser = QPushButton('Comprobar Sintaxis', self)
-        self.buttonParser.resize(120, 40)
+        self.buttonParser = QPushButton('Comprobar Parser', self)
+        self.buttonParser.resize(120, 80)
         self.buttonParser.move(self.buttonLexer.x() + self.buttonLexer.width() + 20, self.textarea.y()+ self.textarea.height()+ 30)
         self.buttonParser.clicked.connect(self.comprobar_Parser)
 

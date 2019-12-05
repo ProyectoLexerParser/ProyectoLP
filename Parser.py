@@ -24,7 +24,7 @@ def p_assign(p):
             | var funcionCalcularA
             | var funcionCalcularC
             | var funcionCalcularKm'''
-    p[0] = p[2]
+    p[0] = p[1] + p[2]
 
 def p_input(p):
     'input : INPUT LPAREN string RPAREN'
@@ -103,7 +103,8 @@ def p_obtencionIndex(p):
 
 def p_sentenciaPrint(p):
     '''sentenciaPrint : PRINT LPAREN string RPAREN
-                | PRINT LPAREN string COMA CADENA RPAREN'''
+                | PRINT LPAREN string COMA text RPAREN
+                | PRINT LPAREN text RPAREN'''
     if len(p) == 5:
         p[0] = p[1] + p[2] + p[3] + p[4]
     else:
@@ -135,11 +136,11 @@ def p_restaLongitudAltitud(p):
     p[0] = p[1] + p[2] + p[3]
 
 def p_funcionCalcularA(p):
-    'funcionCalcularA : funcionSinGeneral TIMES funcionCos'
+    'funcionCalcularA : funcionSinGeneral TIMES funcionSin2'
     p[0] = p[1] + p[2] + p[3]
 
 def p_funcionSinGeneral(p):
-    'funcionSinGeneral : funcionSin1 TIMES funcionSin2'
+    'funcionSinGeneral : funcionSin1 PLUS funcionCos'
     p[0] = p[1] + p[2] +p[3]
 
 def p_funcionSin1(p):
@@ -155,7 +156,7 @@ def p_funcionSin2(p):
 def p_funcionCos(p):
     'funcionCos : COS LPAREN text RPAREN TIMES COS LPAREN text RPAREN'
     if p[3] != p[8]:
-        p[0] = p[1] + p[2] + p[3] + p[4] + str(p[5]) + p[6] + p[7] + str(p[8]) +p[9]
+        p[0] = p[1] + p[2] + p[3] + p[4] + str(p[5]) + p[6] + p[7] + p[8] +p[9]
 
 def p_funcionCalcularC(p):
     'funcionCalcularC : number TIMES ASIN LPAREN SQRT LPAREN text RPAREN RPAREN'

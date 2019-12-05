@@ -1,0 +1,17 @@
+from math import *
+dicc={'urdesa':[15,24],'guasmo':[34,47], 'trinitaria':[150,4]}
+origen = input('CoordenadaOrigen')
+destino = input('CoordenadaDestino')
+if(origen in dicc.keys() and destino in dicc.keys()):
+	log1 = dicc.get(origen)[0]
+	lat1 = dicc.get(origen)[1]
+	log2 = dicc.get(destino)[0]
+	lat2 = dicc.get(destino)[1]
+	dlog = log2 - log1
+	dlat = lat2 - lat1
+	a=sin(dlat/2)**2 + cos(lat1) * cos(lat2) * sin(dlong/2)**2
+	c=2*asin(sqrt(a))
+	km = 6367 * c
+	print('Distancia',km)
+else:
+	print('ERROR')

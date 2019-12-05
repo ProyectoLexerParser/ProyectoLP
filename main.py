@@ -13,7 +13,7 @@ if __name__=='__main__':
     entrada8 = "km = 6367 * c"
     entrada9 = "return km"
     entrada10 = "from math import *"
-    algoritmo = "from math import *\n dicc={\"urdesa\":[15,24],\"guasmo\":[34,47], \"trinitaria\":[150,4]} \n origen = input('CoordenadaOrigen')\n destino = input('CoordenadaDestino') \n if(origen in dicc.keys() and destino in dicc.keys()): \n log1 = dicc.get(origen)[0] \n lat1 = dicc.get(origen)[1] \n log2 = dicc.get(destino)[0] \n lat2 = dicc.get(destino)[1] \n dlog = log2 - log1 \n lat = lat2 - lat1 \n a=sin(dlta/2)**2 * sin(dlta/2)**2 * cos(var1) * cos(var2)\n c=2*asin(sqrt(a)) \n km = 6367 * c\n return km \n else: \n print('ERROR')"
+    algoritmo = "from math import *\n dicc={'urdesa':[15,24],'guasmo':[34,47], 'trinitaria':[150,4]} \n origen = input('CoordenadaOrigen')\n destino = input('CoordenadaDestino') \n if(origen in dicc.keys() and destino in dicc.keys()): \n log1 = dicc.get(origen)[0] \n lat1 = dicc.get(origen)[1] \n log2 = dicc.get(destino)[0] \n lat2 = dicc.get(destino)[1] \n dlog = log2 - log1 \n dlat = lat2 - lat1 \n a=sin(dlat/2)**2 + cos(lat1) * cos(lat2) * sin(dlong/2)**2\n c=2*asin(sqrt(a)) \n km = 6367 * c\n print('Distancia',km) \n else: \n print('ERROR')"
     # listaPrueba = [entrada, entrada1, entrada2, entrada3, entrada4, entrada5,entrada6,entrada7,entrada8,entrada9, entrada10]
     lista = algoritmo.split('\n')
     print(lista)
