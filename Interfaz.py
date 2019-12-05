@@ -39,19 +39,20 @@ class App(QMainWindow):
 
         # Boton Lexer&Parser
         self.button = QPushButton('Comprobar Lexer y Parser', self)
-        self.button.resize(150, 80)
-        self.button.move(self.textarea.x(), self.textarea.y()+ self.textarea.height()+ 30)
+        self.button.resize(200, 90)
+        self.button.move(self.textarea.x() , self.textarea.y()+ self.textarea.height() + 30 )
+
         self.button.clicked.connect(self.comprobar_LexeryParser)
 
 
         # Boton Lexer
         self.buttonLexer = QPushButton('Comprobar Lexer', self)
-        self.buttonLexer.resize(100, 80)
-        self.buttonLexer.move(self.textarea.x() + self.button.width() + 20, self.textarea.y()+ self.textarea.height()+ 30)
+        self.buttonLexer.resize(150, 80)
+        self.buttonLexer.move(self.textarea.x() + self.button.width() +20, self.textarea.y()+ self.textarea.height()+ 30)
         self.buttonLexer.clicked.connect(self.comprobar_Lexer)
         # Boton Parser
         self.buttonParser = QPushButton('Comprobar Parser', self)
-        self.buttonParser.resize(120, 80)
+        self.buttonParser.resize(170, 80)
         self.buttonParser.move(self.buttonLexer.x() + self.buttonLexer.width() + 20, self.textarea.y()+ self.textarea.height()+ 30)
         self.buttonParser.clicked.connect(self.comprobar_Parser)
 
